@@ -8,17 +8,18 @@ export const LandingContainer = styled.div`
   position: relative;
   width: 100vw;
   min-height: 100vh;
-  // background-color: red;
+  background-color: red;
 `;
 
 export const Wrapper = styled.div`
-  display: inline-flex;
+  display: flex;
   height: 548px;
   flex-shrink: 0;
   width: 80%;
-//   background-color: red;
+  // background-color: red;
   border:none;
   justify-content:space-around;
+  margin-top:110px;
 `;
 
 export const Wrapper2 = styled.div`
