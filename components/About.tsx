@@ -1,4 +1,5 @@
 import {
+  AboutBigContainer,
   AboutContainer,
   AboutFrontContainer,
   AboutFrontHeader,
@@ -7,8 +8,33 @@ import {
   AboutTechContainer,
   AboutText,
   AboutTextContainer,
+  AboutTitles,
+  Title,
 } from "@/styles/About";
 import React from "react";
+
+const TechStack = [
+  {
+    title: "Frontend",
+    tech: [
+      "React js",
+      "Javascript",
+      "Typescript",
+      "HTML & CSS",
+      "Next js",
+      "Styled-Components",
+      "Material UI",
+    ],
+  },
+  {
+    title: "Backend",
+    tech: ["Node.js"],
+  },
+  {
+    title: "Blockchain",
+    tech: ["Solidity", "Web3.js",],
+  },
+];
 
 const About = () => {
   return (
@@ -38,9 +64,18 @@ const About = () => {
         <AboutPic></AboutPic>
       </AboutTextContainer>
       <AboutTechContainer>
-        <AboutFrontContainer>
-            <AboutFrontHeader>FRONTEND</AboutFrontHeader>
-        </AboutFrontContainer>
+        {TechStack.map((item, index) => (
+          <AboutBigContainer key={index}>
+            <AboutFrontContainer>
+              <AboutFrontHeader>{item.title}</AboutFrontHeader>
+              <AboutTitles>
+                {item.tech.map((tech, index) => (
+                  <Title key={index}>{tech}</Title>
+                ))}
+              </AboutTitles>
+            </AboutFrontContainer>
+          </AboutBigContainer>
+        ))}
       </AboutTechContainer>
     </AboutContainer>
   );

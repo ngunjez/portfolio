@@ -1,4 +1,10 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const rotateAnimation = keyframes`
+  100% {
+    transform: rotateY(360deg);
+  }
+`;
 
 export const AboutContainer = styled.div`
 position:relative;
@@ -9,7 +15,8 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-gap:10px;
+gap:20px;
+padding:3% 0;
 `
 
 export const AboutHeader = styled.div`
@@ -19,6 +26,7 @@ font-size: clamp(24px, calc(1.5rem + ((1vw - 7.68px) * 0.5208)), 30px);
 font-weight: 500;
 line-height: normal;
 padding: 3%;
+font-weight: bold;
 `
 
 export const AboutTextContainer = styled.div`
@@ -30,7 +38,6 @@ border:none;
 justify-content:space-around;
 // align-items:center;
 // background-color:blue;
-
 `
 
 export const AboutText = styled.div`
@@ -38,49 +45,85 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:flex-start;
-background-color:pink;
+// background-color:pink;
 width:60%;
 padding:1rem;
-line-height:1.5;
-font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.6944)), 24px);
+line-height:1.5; 
+font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.1736)), 18px);
 font-weight:500;
 `
 
 export const AboutPic = styled.div`
-width: 635px;
-height: 548px;
+// width: 235px;
+height: 348px;
 border-radius: 10px;
+background: linear-gradient(#faa504, #141001);
+// Remove position: absolute and related properties
+animation: ${rotateAnimation} 7s infinite linear;
+transform-style: preserve-3d;
 background: url("/About_Pic.jpg"), lightgray 50% / cover no-repeat;
-background-position:center;
-background-size:cover;
-`
+background-position: center;
+background-size: cover;
+// Adjust the size and margin properties
+width: 25%; // Adjust the width as needed
+margin-right: 5%;
+flex-shrink: 0; 
+`;
 
 export const AboutTechContainer = styled.div`
 display:flex;
 flex-direction:row;
-justify-content:space-evenly;
+justify-content:space-between;
 width:79%;
 height:auto;
 border:none;
-background-color:blue;
+margin-top:50px;
+// background-color:blue;
+`
+
+export const AboutBigContainer = styled.div`
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+align-items:center;
+// background-color:black;
+height:auto;
+width:auto;
 `
 
 export const AboutFrontContainer = styled.div`
 display:flex;
-flex-direction:row;
+flex-direction:column;
 justify-content:center;
-align-items:flex-start;
-background-color:red;
+// align-items:flex-start;
+// background-color:red;
 `
 
 export const AboutFrontHeader = styled.div`
 color: #1a3f34;
 text-align:center;
-font-size: clamp(24px, calc(1.5rem + ((1vw - 7.68px) * 0.5208)), 30px);
+font-size: clamp(20px, calc(1.25rem + ((1vw - 7.68px) * 0.3472)), 24px);
 font-weight: 500;
 line-height: normal;
 padding: 3%;
 display:flex;
 flex-direction:column;
 justify-content:center;
+font-weight: bold;
+`
+
+export const AboutTitles = styled.div`
+display:flex;
+flex-direction:column;
+height:auto;
+width:100%;
+text-align:center;
+// background-color:pink;
+gap:5px;
+// justify-content:space-between;
+`
+
+export const Title = styled.div`
+font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.1736)), 18px);
+
 `
