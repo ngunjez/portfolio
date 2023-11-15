@@ -36,11 +36,13 @@ export const NavLinks = styled.div`
   color: #fff;
   right: 40px;
   font-size: clamp(20px, calc(1.25rem + ((1vw - 7.68px) * 0.3472)), 24px);
+  cursor: pointer;
+
 `;
 
 export const Navlink = styled.div`
   text-decoration: none;
   font-weight: bold;
-  cursor: pointer;
+   cursor: pointer;
   font-family: Inter;
 `;

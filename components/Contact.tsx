@@ -7,10 +7,12 @@ import {
   Email,
   Github,
   LinkedIn,
-  Twiiter,
+  Twitter,
 } from "@/styles/Contact";
 import React from "react";
 import Link from "next/link";
+import { Fade } from "react-awesome-reveal";
+
 
 const Contact = () => {
   return (
@@ -26,32 +28,34 @@ const Contact = () => {
           reach out. Feel free to contact me at your convenience, and I'll be
           happy to discuss how we can create something meaningful together.
         </ContactDescription>
+        <Fade direction="up" triggerOnce>
         <ContactLinks>
-            <Link href = ""
+            <Link href = "/Twitter.svg"
                   target="_blank"
                   rel="noopener noreferrer"
              >
-                <Twiiter></Twiiter>
+                <Twitter></Twitter>
              </Link>
-             <Link href = ""
+             <Link href = "/LinkedIn.svg"
                   target="_blank"
                   rel="noopener noreferrer"
              >
                 <LinkedIn></LinkedIn>
              </Link>
-             <Link href = ""
+             <Link href = "/Email.svg"
                   target="_blank"
                   rel="noopener noreferrer"
              >
                 <Email></Email>
              </Link>
-             <Link href = ""
+             <Link href = "/Github.svg"
                   target="_blank"
                   rel="noopener noreferrer"
              >
                 <Github></Github>
              </Link>
         </ContactLinks>
+        </Fade>
       </ContactTextContainer>
     </ContactContainer>
   );
