@@ -16,7 +16,7 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 gap:20px;
-padding:3% 0;
+padding:5% 0;
 `
 
 export const AboutHeader = styled.div`

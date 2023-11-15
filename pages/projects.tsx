@@ -2,6 +2,7 @@ import { PCardContainer, PHeader, ProjectsContainer, PCasesCard, PImageContainer
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import HomeLayout from "@/Layout/Layout";
 
 const projectUrls = [
     "https://www.brokerbox.app/",   
@@ -53,7 +54,7 @@ const smartCityCases = [
 
 const Projects = () => {
     return(
-        <ProjectsContainer>
+        <ProjectsContainer id="projects">
             <PHeader>PROJECTS</PHeader>
             <PWwrapper>
             <PCardContainer>
@@ -85,3 +86,15 @@ const Projects = () => {
 }
 
 export default Projects;
+
+
+Projects.getLayout = function getLayout(page: React.ReactNode) {
+  return (
+    <HomeLayout>
+      {page}
+    </HomeLayout>
+  );
+};
+
+  
+  

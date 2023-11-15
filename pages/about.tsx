@@ -12,6 +12,7 @@ import {
   Title,
 } from "@/styles/About";
 import React from "react";
+import HomeLayout from "@/Layout/Layout";
 
 const TechStack = [
   {
@@ -32,13 +33,13 @@ const TechStack = [
   },
   {
     title: "Blockchain",
-    tech: ["Solidity", "Web3.js",],
+    tech: ["Solidity", "Web3.js"],
   },
 ];
 
 const About = () => {
   return (
-    <AboutContainer>
+    <AboutContainer id="about">
       <AboutHeader>Personal Insight</AboutHeader>
       <AboutTextContainer>
         <AboutText>
@@ -82,3 +83,11 @@ const About = () => {
 };
 
 export default About;
+
+About.getLayout = function getLayout(page: React.ReactNode) {
+    return (
+      <HomeLayout>
+        {page}
+      </HomeLayout>
+    );
+  };

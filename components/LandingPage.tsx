@@ -9,6 +9,8 @@ import {
 } from "@/styles/LandingPage";
 import React from "react";
 import { Fade } from "react-awesome-reveal";
+import HomeLayout from "@/Layout/Layout";
+
 
 const downloadCV = () => {
   const cvFileName = 'CV.pdf';
@@ -24,7 +26,7 @@ const downloadCV = () => {
 
 const LandingPage = () => {
   return (
-    <LandingContainer>
+    <LandingContainer id="home">
       <Wrapper>
         <Wrapper2>
           <Fade direction="up" triggerOnce>
@@ -46,3 +48,12 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+
+
+LandingPage.getLayout = function getLayout(page: React.ReactNode) {
+  return (
+    <HomeLayout>
+      {page}
+    </HomeLayout>
+  );
+};

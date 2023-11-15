@@ -5,9 +5,8 @@ position:relative;
 width:100%;
 height:100vh;
 display:flex;
-// align-items:center;
+align-items:center;
 justify-content:center;
-// background-color:grey;
 background: lightblue;
   background: radial-gradient(
       circle,
@@ -93,7 +92,7 @@ align-items:center;
 text-align:center;
 justify-content:center;
 padding:5% 0;
-gap:20px;
+gap:50px;
 `
 
 export const ContactDescription = styled.div`

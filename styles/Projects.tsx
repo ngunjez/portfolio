@@ -9,6 +9,7 @@ export const ProjectsContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #131917;
+  padding:5% 0;
 `;
 
 export const PWwrapper = styled.div`
