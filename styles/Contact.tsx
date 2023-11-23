@@ -68,7 +68,14 @@ background: lightblue;
       #333 1%,
       rgba(88, 84, 84, 0.959) 0%
     );
-}
+    @media screen and (max-width: 768px) {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      height:100%;
+    }
 `
 
 export const ContactHeader = styled.div`
@@ -78,12 +85,13 @@ text-align:center;
 font-size: clamp(24px, calc(1.5rem + ((1vw - 7.68px) * 0.5208)), 30px);
 font-weight: 500;
 line-height: normal;
-// padding: 3%;
 font-weight: normal;
+@media screen and (max-width: 768px) {
+margin-top: 25%;
+}
 `
 
 export const ContactTextContainer = styled.div`
-// background-color:blue;
 display:flex;
 flex-direction:column;
 width:80%;
@@ -108,7 +116,11 @@ font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.1736)), 18px);
 font-weight:500;
 color:#fff;
 text-align:center;
+@media screen and (max-width: 768px) {
+  width:100%;
+  text-align:center;
 
+}
 `
 
 export const ContactLinks = styled.div`
@@ -117,8 +129,10 @@ height:auto;
 display:flex;
 align-items:center;
 justify-content:space-between;
-// background-color:green;
 gap:90px;
+@media screen and (max-width: 768px) {
+  gap:50px;
+}
 `
 
 export const Twitter = styled.div`
@@ -157,7 +171,6 @@ height: 20px;
 flex-shrink: 0;
 fill: #FFF;
 background-color:#FFFBF5;
-
 background-image: url("/Email.svg");
 background-position:center;
 background-repeat:no-repeat;

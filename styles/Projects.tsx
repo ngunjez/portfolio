@@ -10,6 +10,13 @@ export const ProjectsContainer = styled.div`
   justify-content: center;
   background-color: #131917;
   padding:5% 0;
+  @media screen and (max-width: 768px) {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:5% 0;
+  }
 `;
 
 export const PWwrapper = styled.div`
@@ -26,6 +33,9 @@ export const PHeader = styled.div`
   line-height: normal;
   padding: 3%;
   font-weight: bold;
+  @media screen and (max-width: 768px) {
+    margin-top:70px;
+  }
 `;
 
 export const PCardContainer = styled.div`
@@ -36,10 +46,10 @@ export const PCardContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  // background-color: blue;
   @media screen and (max-width: 768px) {
     width: 100%;
     height: 100%;
+    gap:10px;
   }
 `;
 

@@ -30,20 +30,24 @@ const Contact = () => {
         </ContactDescription>
         <Fade direction="up" triggerOnce>
           <ContactLinks>
-            <Link href="/Twitter.svg" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://twitter.com/Ngunjiri29"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Twitter></Twitter>
             </Link>
             <Link
-              href="/LinkedIn.svg"
+              href="https://www.linkedin.com/in/owen-ngunjiri-b19a7324a/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <LinkedIn></LinkedIn>
             </Link>
-            <Link href="/Email.svg" target="_blank" rel="noopener noreferrer">
+            <Link href="mailto:owen2ngunjiri@gmail.com" target="_blank" rel="noopener noreferrer">
               <Email></Email>
             </Link>
-            <Link href="/Github.svg" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/ngunjez" target="_blank" rel="noopener noreferrer">
               <Github></Github>
             </Link>
           </ContactLinks>
@@ -56,9 +60,5 @@ const Contact = () => {
 export default Contact;
 
 Contact.getLayout = function getLayout(page: React.ReactNode) {
-    return (
-      <HomeLayout>
-        {page}
-      </HomeLayout>
-    );
-  };
+  return <HomeLayout>{page}</HomeLayout>;
+};

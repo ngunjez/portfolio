@@ -17,6 +17,13 @@ justify-content:center;
 align-items:center;
 gap:20px;
 padding:5% 0;
+@media screen and (max-width: 768px) {
+  display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:5% 0;
+}
 `
 
 export const AboutHeader = styled.div`
@@ -27,6 +34,9 @@ font-weight: 500;
 line-height: normal;
 padding: 3%;
 font-weight: bold;
+@media screen and (max-width: 768px) {
+  margin-top:70px;
+}
 `
 
 export const AboutTextContainer = styled.div`
@@ -36,6 +46,13 @@ width:80%;
 height:auto;
 border:none;
 justify-content:space-around;
+@media screen and (max-width: 768px) {
+  display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+}
 // align-items:center;
 // background-color:blue;
 `
@@ -51,6 +68,10 @@ padding:1rem;
 line-height:1.5; 
 font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.1736)), 18px);
 font-weight:500;
+@media screen and (max-width: 768px) {
+  width:100%;
+  text-align:center;
+}
 `
 
 export const AboutPic = styled.div`
@@ -68,17 +89,24 @@ background-size: cover;
 width: 25%; // Adjust the width as needed
 margin-right: 5%;
 flex-shrink: 0; 
+@media screen and (max-width: 768px) {
+  height:300px;
+  width:320px;
+}
 `;
 
 export const AboutTechContainer = styled.div`
 display:flex;
 flex-direction:row;
 justify-content:space-between;
-width:79%;
+width:80%;
 height:auto;
 border:none;
 margin-top:50px;
-// background-color:blue;
+@media screen and (max-width: 768px) {
+  width:98%;
+  gap:5px;
+}
 `
 
 export const AboutBigContainer = styled.div`
@@ -86,7 +114,6 @@ display:flex;
 flex-direction:column;
 justify-content:space-between;
 align-items:center;
-// background-color:black;
 height:auto;
 width:auto;
 `

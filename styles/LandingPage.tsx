@@ -8,33 +8,48 @@ export const LandingContainer = styled.div`
   position: relative;
   width: 100vw;
   min-height: 100vh;
-  // background-color: red;
   background-color: #ffffff;
   background-image: radial-gradient(rgba(12, 12, 12, 0.06) 2px, transparent 0);
   background-size: 30px 30px;
   background-position: -5px -5px;
-}
+  @media screen and (max-width: 768px) {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   height: auto;
   width: 80%;
-  // background-color: red;
   border:none;
-  // justify-content:space-evenly;
   gap:2px;
   margin-top:110px;
+  @media screen and (max-width: 768px) {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:95%;
+    margin-top:50px;
+    gap:20px;
+  }
 `;
 
 export const Wrapper2 = styled.div`
 display:flex;
 flex-direction:column;
-// justify-content: space-evenly;
 gap:50px;
 align-items:flex-start;
-// background-color:blue;
 margin-top:50px;
+@media screen and (max-width: 768px) {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
 `
 
 export const WrapperText = styled.div`
@@ -52,7 +67,14 @@ color: #192B3F;
 font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.3472)), 20px);
 font-weight: 400;
 line-height: normal;
-// background-color:blue;
+/* background-color:red; */
+@media screen and (max-width:768px){
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
 `
 
 export const WrapperImage = styled.div`
@@ -62,6 +84,10 @@ border-radius: 10px;
 background: url("/Pic.jpg"), lightgray 50% / cover no-repeat;
 background-position:center;
 background-size:cover;
+@media screen and (max-width:768px){
+  width:350px;
+  height:300px;
+}
 `
 
 export const Button = styled.div`
