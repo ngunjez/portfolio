@@ -81,9 +81,10 @@ export const WrapperImage = styled.div`
 width: 535px;
 height: 448px;
 border-radius: 10px;
-background: url("/Pic.jpg"), lightgray 50% / cover no-repeat;
+background: url("/me2.png"), lightgray 50% / cover no-repeat;
 background-position:center;
 background-size:cover;
+background-color: inherit;
 @media screen and (max-width:768px){
   width:350px;
   height:300px;

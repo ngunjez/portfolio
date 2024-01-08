@@ -92,6 +92,7 @@ export const PCasesBody = styled.div`
   align-items: flex-start;
   height: 222px;
   flex-direction: column;
+  gap:5px;
   @media screen and (max-width: 768px) {
     padding: 15px 10px 20px 10px;
   }
