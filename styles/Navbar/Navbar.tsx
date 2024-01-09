@@ -83,17 +83,20 @@ export const NavButton = styled.div`
 `;
 
 export const MobileMenuIcon = styled.div`
+@media screen and (max-width: 768px) {
   position: absolute;
   right: 20px;
-  top: 20px;
+  top: 15px;
   width: 45px;
   height: 45px;
-  background: #fff;
+  background: #ffffff67;
+  color: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
 `;
 
 export const MobileMenu = styled.div`
@@ -109,6 +112,7 @@ export const MobileMenu = styled.div`
   display: flex;
   box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
   transition: display 0.3s ease-in-out;
+  gap:5px;
 `;
 
 export const MobileMenuArrow = styled.div`
