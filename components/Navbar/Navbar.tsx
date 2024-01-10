@@ -1,11 +1,9 @@
-// Navbar.jsx
-
 import {
   NavLinks,
   NavLogo,
   NavbarContainer,
-  NavButton, // Add the styles for buttons
-  MobileMenuIcon, // Add the styles for the mobile menu icon
+  NavButton, 
+  MobileMenuIcon,
   MobileMenu,
 } from "@/styles/Navbar/Navbar";
 import React, { useState } from "react";
@@ -13,6 +11,8 @@ import { useRouter } from "next/router";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import useOutsideClick from "@/Helpers/CloseModal";
+import { StyleSheetManager } from 'styled-components';
+
 
 const navigationItems = [
   { path: "/", label: "Home" },
@@ -36,6 +36,7 @@ const Navbar = () => {
   };
 
   return (
+    <StyleSheetManager shouldForwardProp={(prop) => prop !== 'isOpen'}>
     <NavbarContainer>
       <NavLogo onClick={() => handleNavigation("/")}></NavLogo>
 
@@ -61,6 +62,7 @@ const Navbar = () => {
         </MobileMenu>
       )}
     </NavbarContainer>
+    </StyleSheetManager>
   );
 };
 

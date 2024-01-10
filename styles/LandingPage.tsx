@@ -67,7 +67,6 @@ color: #192B3F;
 font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.3472)), 20px);
 font-weight: 400;
 line-height: normal;
-/* background-color:red; */
 @media screen and (max-width:768px){
   width:100%;
   display:flex;
@@ -80,7 +79,9 @@ line-height: normal;
 export const WrapperImage = styled.div`
 width: 535px;
 height: 448px;
-border-radius: 10px;
+align-items: center;
+justify-content: center;
+border-radius: 10px 10px 5px 10px;
 background: url("/me2.png"), lightgray 50% / cover no-repeat;
 background-position:center;
 background-size:cover;
@@ -88,6 +89,7 @@ background-color: inherit;
 @media screen and (max-width:768px){
   width:350px;
   height:300px;
+  margin-right:90px;
 }
 `
 

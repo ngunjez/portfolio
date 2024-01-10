@@ -13,7 +13,7 @@ import HomeLayout from "@/Layout/Layout";
 
 
 const downloadCV = () => {
-  const cvFileName = 'CV2.pdf';
+  const cvFileName = 'cv4.pdf';
   const cvFileUrl = '/' + cvFileName;  
 
   console.log('CV File URL:', cvFileUrl);

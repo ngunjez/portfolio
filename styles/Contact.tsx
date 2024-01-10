@@ -79,7 +79,6 @@ background: lightblue;
 `
 
 export const ContactHeader = styled.div`
-// color: #1a3f34;
 color:#fff;
 text-align:center;
 font-size: clamp(24px, calc(1.5rem + ((1vw - 7.68px) * 0.5208)), 30px);
