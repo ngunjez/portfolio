@@ -24,7 +24,7 @@ export const NavLogo = styled.div`
   height: 100%;
   width: 15vw;
   display: flex;
-  background-image: url("/logo.png");
+  background-image: url("/Logo.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -2,7 +2,7 @@ import {
   NavLinks,
   NavLogo,
   NavbarContainer,
-  NavButton, 
+  NavButton,
   MobileMenuIcon,
   MobileMenu,
 } from "@/styles/Navbar/Navbar";
@@ -11,8 +11,7 @@ import { useRouter } from "next/router";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import useOutsideClick from "@/Helpers/CloseModal";
-import { StyleSheetManager } from 'styled-components';
-
+import { StyleSheetManager } from "styled-components";
 
 const navigationItems = [
   { path: "/", label: "Home" },
@@ -36,32 +35,37 @@ const Navbar = () => {
   };
 
   return (
-    <StyleSheetManager shouldForwardProp={(prop) => prop !== 'isOpen'}>
-    <NavbarContainer>
-      <NavLogo onClick={() => handleNavigation("/")}></NavLogo>
+    <StyleSheetManager shouldForwardProp={(prop) => prop !== "isOpen"}>
+      <NavbarContainer>
+        <NavLogo onClick={() => handleNavigation("/")}></NavLogo>
 
-      <NavLinks isOpen={isOpen} ref={modalContainerRef}>
-        {navigationItems.map((item, index) => (
-          <NavButton key={index} onClick={() => handleNavigation(item.path)}>
-            {item.label}
-          </NavButton>
-        ))}
-      </NavLinks>
-
-      <MobileMenuIcon onClick={toggleMobileMenu} className="mobile-menu-toggle">
-        {isOpen ? <CloseIcon /> : <MenuIcon />}
-      </MobileMenuIcon>
-
-      {isOpen && (
-        <MobileMenu ref={modalContainerRef}>
+        <NavLinks isOpen={isOpen} ref={modalContainerRef}>
           {navigationItems.map((item, index) => (
-            <div key={index}>
-              <h3 onClick={() => handleNavigation(item.path)}>{item.label}</h3>
-            </div>
+            <NavButton key={index} onClick={() => handleNavigation(item.path)}>
+              {item.label}
+            </NavButton>
           ))}
-        </MobileMenu>
-      )}
-    </NavbarContainer>
+        </NavLinks>
+
+        <MobileMenuIcon
+          onClick={toggleMobileMenu}
+          className="mobile-menu-toggle"
+        >
+          {isOpen ? <CloseIcon /> : <MenuIcon />}
+        </MobileMenuIcon>
+
+        {isOpen && (
+          <MobileMenu ref={modalContainerRef}>
+            {navigationItems.map((item, index) => (
+              <div key={index}>
+                <h3 onClick={() => handleNavigation(item.path)}>
+                  {item.label}
+                </h3>
+              </div>
+            ))}
+          </MobileMenu>
+        )}
+      </NavbarContainer>
     </StyleSheetManager>
   );
 };

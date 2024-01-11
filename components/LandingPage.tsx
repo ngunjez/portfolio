@@ -10,6 +10,8 @@ import {
 import React from "react";
 import { Fade } from "react-awesome-reveal";
 import HomeLayout from "@/Layout/Layout";
+import Image from "next/image";
+import revamp2 from "@/public/revamp2.webp";
 
 
 const downloadCV = () => {
@@ -40,7 +42,14 @@ const LandingPage = () => {
           </Fade>
         </Wrapper2>
         <Fade direction="up" triggerOnce>
-        <WrapperImage></WrapperImage>
+        <WrapperImage>
+          <Image
+          src={revamp2}
+          alt= "picture of me"
+          width={535}
+          min-height={448}
+          />
+        </WrapperImage>
         </Fade>
       </Wrapper>
     </LandingContainer>
