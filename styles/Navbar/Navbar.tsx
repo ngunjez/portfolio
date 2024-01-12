@@ -16,8 +16,11 @@ export const NavbarContainer = styled.nav`
   z-index: 20;
   @media screen and (max-width:768px){
     width:100vw;
-    height:9%;
+    height:9.5%;
     /* background-color:red; */
+  }
+  @media screen and (max-width:380px){
+    height:12%;
   }
 `;
 
@@ -30,7 +33,14 @@ export const NavLogo = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color:inherit;
   cursor: pointer;
+  @media screen and (max-width: 1290px) {
+    width:20%;
+  }
+  @media screen and (max-width: 1100px){
+    width:40%;
+  }
   @media screen and (max-width: 768px) {
     height: 65px;
     width: 200px;
