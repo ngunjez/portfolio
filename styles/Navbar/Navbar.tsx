@@ -16,6 +16,8 @@ export const NavbarContainer = styled.nav`
   z-index: 20;
   @media screen and (max-width:768px){
     width:100vw;
+    height:9%;
+    /* background-color:red; */
   }
 `;
 

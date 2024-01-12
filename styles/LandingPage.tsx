@@ -18,6 +18,7 @@ export const LandingContainer = styled.div`
     align-items: center;
     justify-content: center;
   }
+
 `;
 
 export const Wrapper = styled.div`
@@ -57,6 +58,10 @@ export const WrapperText = styled.div`
   font-size: clamp(30px, calc(1.875rem + ((1vw - 7.68px) * 3.0382)), 65px);
   font-weight: 400;
   line-height: 84.2%;
+  @media screen and (max-width:768px){
+    text-align:center;
+    line-height:90%;
+  }
 `;
 
 export const WrapperDescription = styled.div`
