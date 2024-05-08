@@ -13,7 +13,6 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  // Use getLayout from the Component if available, otherwise use a default layout
   const getLayout = Component.getLayout || ((page) => page);
 
   return getLayout(<Component {...pageProps} />);

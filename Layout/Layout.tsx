@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 
 interface HomeLayoutProps {
