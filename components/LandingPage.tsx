@@ -15,7 +15,7 @@ import revamp2 from "@/public/revamp2.webp";
 
 
 const downloadCV = () => {
-  const cvFileName = 'cv4.pdf';
+  const cvFileName = 'cv.pdf';
   const cvFileUrl = '/' + cvFileName;  
 
   console.log('CV File URL:', cvFileUrl);
