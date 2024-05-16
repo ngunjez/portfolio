@@ -38,7 +38,7 @@ const LandingPage = () => {
               and web3 technologies, adept at crafting intuitive user interfaces
               for both conventional and decentralized web applications.
             </WrapperDescription>
-            <Button onClick={downloadCV}>&#x2193; Download CV</Button>
+            <Button onClick={downloadCV}>&#x2193; Resume</Button>
           </Fade>
         </Wrapper2>
         <Fade direction="up" triggerOnce>
