@@ -102,7 +102,7 @@ export const MobileMenuIcon = styled.div`
   top: 25px;
   width: 45px;
   height: 45px;
-  color: #fff;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;

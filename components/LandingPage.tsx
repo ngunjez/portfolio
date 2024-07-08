@@ -46,8 +46,8 @@ const LandingPage = () => {
           <Image
           src={revamp2}
           alt= "picture of me"
-          width={535}
-          min-height={448}
+          width={355}
+          height={250}
           />
         </WrapperImage>
         </Fade>
