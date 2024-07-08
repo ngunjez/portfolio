@@ -11,10 +11,11 @@ import {
   ReadMoreText,
   PWwrapper,
 } from "@/styles/Projects";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import HomeLayout from "@/Layout/Layout";
+import styled from "styled-components";
 
 const projectUrls = [
   "https://www.brokerbox.app/",
@@ -30,14 +31,24 @@ const projectUrls = [
 
 const smartCityCases = [
   {
-    title: "BrokerBox",
+    title: "Xntree",
     description: "Next js,Typescript, Styled-Components",
-    imageSrc: "/brokerbox.jpg",
+    imageSrc: "/xntree.png",
   },
   {
     title: "EQAM",
     description: "Next js, Javascript,",
     imageSrc: "/eqam.jpg",
+  },
+  {
+    title: "Dollar Markets",
+    description: "Next js,Typescript, Styled-Components",
+    imageSrc: "/dollarmarkets.png",
+  },
+  {
+    title: "Better Call Paul",
+    description: "Next js,Typescript, Styled-Components,Node js,",
+    imageSrc: "/bcp.png",
   },
   {
     title: "Code3camp",
@@ -60,27 +71,96 @@ const smartCityCases = [
     imageSrc: "/skyswyp.jpg",
   },
   {
-    title: "Xntree",
+    title: "BrokerBox",
     description: "Next js,Typescript, Styled-Components",
-    imageSrc: "/xntree.png",
-  },
-  {
-    title: "Better Call Paul",
-    description: "Next js,Typescript, Styled-Components,Node js,",
-    imageSrc: "/bcp.png",
-  },
-  {
-    title: "Dollar Markets",
-    description: "Next js,Typescript, Styled-Components",
-    imageSrc: "/dollarmarkets.png",
+    imageSrc: "/brokerbox.jpg",
   },
 ];
 
+const ScrollArrow = styled.div<{ direction: 'right' }>`
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  animation: pulse 1.5s infinite;
+
+  &::after {
+    content: '→';
+    color: white;
+    font-size: 24px;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: translateY(-50%) scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+  }
+`;
+
+
 const Projects = () => {
+  const [showRightArrow, setShowRightArrow] = useState(true);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (wrapper) {
+      wrapper.addEventListener('scroll', checkScroll);
+      window.addEventListener('resize', checkScroll);
+      checkScroll();
+    }
+
+    return () => {
+      if (wrapper) {
+        wrapper.removeEventListener('scroll', checkScroll);
+        window.removeEventListener('resize', checkScroll);
+      }
+    };
+  }, []);
+
+  const checkScroll = () => {
+    if (wrapperRef.current) {
+      const { scrollWidth, clientWidth, scrollLeft } = wrapperRef.current;
+      setShowRightArrow(scrollLeft + clientWidth < scrollWidth - 1);
+    }
+  };
+
+  const handleScroll = () => {
+    if (wrapperRef.current) {
+      const scrollAmount = wrapperRef.current.clientWidth * 0.8;
+      wrapperRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    } else {
+    }
+  };
   return (
     <ProjectsContainer id="projects">
       <PHeader>PROJECTS</PHeader>
-      <PWwrapper>
+      <PWwrapper ref={wrapperRef}>
         <PCardContainer>
           {smartCityCases.map((smartCityCase, index) => (
             <PCasesCard key={index}>
@@ -110,6 +190,14 @@ const Projects = () => {
             </PCasesCard>
           ))}
         </PCardContainer>
+        {showRightArrow && (
+          <ScrollArrow 
+            direction="right" 
+            onClick={() => {
+              handleScroll();
+            }}
+          />
+        )}
       </PWwrapper>
     </ProjectsContainer>
   );

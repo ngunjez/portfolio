@@ -9,63 +9,63 @@ export const ContactContainer = styled.div`
   justify-content: center;
   background: radial-gradient(
       circle,
-      rgb(170, 162, 162),
-      #333 30%,
-      rgba(88, 84, 84, 0.226) 0%
+      rgba(170, 162, 162, 0.1),
+      rgba(51, 51, 51, 0.1) 30%,
+      rgba(88, 84, 84, 0.16) 0%
     ),
     radial-gradient(
       circle at 40px 40px,
-      rgb(233, 228, 228),
-      #333 30%,
+      rgba(233, 228, 228, 0.1),
+      rgba(51, 51, 51, 0.1) 30%,
       rgba(88, 84, 84, 0) 0%
     ),
     radial-gradient(
       circle at 600px 200px,
-      rgb(233, 228, 228),
-      #333 10%,
+      rgba(233, 228, 228, 0.1),
+      rgba(51, 51, 51, 0.1) 10%,
       rgba(88, 84, 84, 0) 0%
     ),
     radial-gradient(
       circle at 800px 100px,
-      rgb(233, 228, 228),
-      #333 10%,
+      rgba(233, 228, 228, 0.1),
+      rgba(51, 51, 51, 0.1) 10%,
       rgba(88, 84, 84, 0) 0%
     ),
     radial-gradient(
       circle at 700px 500px,
-      rgb(233, 228, 228),
-      #333 2%,
-      rgba(88, 84, 84, 0.123) 0%
+      rgba(233, 228, 228, 0.1),
+      rgba(51, 51, 51, 0.1) 2%,
+      rgba(88, 84, 84, 0.086) 0%
     ),
     radial-gradient(
       circle at 200px 400px,
-      rgb(233, 228, 228),
-      #333 1%,
+      rgba(233, 228, 228, 0.1),
+      rgba(51, 51, 51, 0.1) 1%,
       rgba(88, 84, 84, 0) 0%
     ),
     radial-gradient(
       circle at 300px 700px,
-      rgb(233, 228, 228),
-      #333 15%,
+      rgba(233, 228, 228, 0.1),
+      rgba(51, 51, 51, 0.1) 15%,
       rgba(88, 84, 84, 0) 0%
     ),
     radial-gradient(
       circle at 900px 500px,
-      rgb(233, 228, 228),
-      #333 20%,
+      rgba(233, 228, 228, 0.1),
+      rgba(51, 51, 51, 0.1) 20%,
       rgba(88, 84, 84, 0) 0%
     ),
     radial-gradient(
       circle at 650px 400px,
-      rgb(233, 228, 228),
-      #333 10%,
+      rgba(233, 228, 228, 0.1),
+      rgba(51, 51, 51, 0.1) 10%,
       rgba(88, 84, 84, 0) 0%
     ),
     radial-gradient(
       circle at 600px 600px,
-      rgb(233, 228, 228),
-      #333 1%,
-      rgba(88, 84, 84, 0.959) 0%
+      rgba(233, 228, 228, 0.1),
+      rgba(51, 51, 51, 0.1) 1%,
+      rgba(88, 84, 84, 0.671) 0%
     );
   @media screen and (max-width: 768px) {
     display: flex;
@@ -101,7 +101,8 @@ export const ContactHeader = styled.div`
   font-size: clamp(24px, calc(1.5rem + ((1vw - 7.68px) * 0.5208)), 30px);
   font-weight: 500;
   line-height: normal;
-  font-weight: normal;
+  font-weight: 700;
+  font-family: DM Sans;
   @media screen and (max-width: 768px) {
     margin-top: 25%;
   }
@@ -114,7 +115,7 @@ export const ContactTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: fit-content;
+  height: fauto;
   align-items: center;
   text-align: center;
   justify-content: center;
@@ -132,11 +133,13 @@ export const ContactDescription = styled.div`
   padding: 1rem;
   line-height: 2;
   font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.1736)), 18px);
-  font-weight: 500;
+  font-weight: 700;
+  font-family: DM Sans;
   color: #fff;
   text-align: center;
   @media screen and (max-width: 768px) {
     width: 100%;
+    padding: 0;
     text-align: center;
   }
 `;

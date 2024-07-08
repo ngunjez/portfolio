@@ -12,13 +12,24 @@ import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import useOutsideClick from "@/Helpers/CloseModal";
 import { StyleSheetManager } from "styled-components";
+import { Link } from "react-scroll";
+import styled from "styled-components";
 
 const navigationItems = [
   { path: "/", label: "Home" },
   { path: "/about", label: "About" },
-  { path: "/contact", label: "Contact" },
   { path: "/projects", label: "Projects" },
+  { path: "/contact", label: "Contact" },
 ];
+
+const CloseButton = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+`;
 
 const Navbar = () => {
   const router = useRouter();
@@ -41,9 +52,14 @@ const Navbar = () => {
 
         <NavLinks isOpen={isOpen} ref={modalContainerRef}>
           {navigationItems.map((item, index) => (
-            <NavButton key={index} onClick={() => handleNavigation(item.path)}>
+            <Link
+              key={index}
+              to={item.label.toLowerCase()}
+              smooth={true}
+              onClick={() => setIsOpen(false)}
+            >
               {item.label}
-            </NavButton>
+            </Link>
           ))}
         </NavLinks>
 
@@ -51,20 +67,25 @@ const Navbar = () => {
           onClick={toggleMobileMenu}
           className="mobile-menu-toggle"
         >
-          {isOpen ? <CloseIcon /> : <MenuIcon />}
+          <MenuIcon />
         </MobileMenuIcon>
 
-        {isOpen && (
-          <MobileMenu ref={modalContainerRef}>
-            {navigationItems.map((item, index) => (
-              <div key={index}>
-                <h3 onClick={() => handleNavigation(item.path)}>
-                  {item.label}
-                </h3>
-              </div>
-            ))}
-          </MobileMenu>
-        )}
+        <MobileMenu isOpen={isOpen} ref={modalContainerRef}>
+          <CloseButton onClick={() => setIsOpen(false)}>
+            <CloseIcon />
+          </CloseButton>
+          {navigationItems.map((item, index) => (
+            <div key={index}>
+              <Link
+                to={item.label.toLowerCase()}
+                smooth={true}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </Link>
+            </div>
+          ))}
+        </MobileMenu>
       </NavbarContainer>
     </StyleSheetManager>
   );

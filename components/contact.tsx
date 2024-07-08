@@ -18,7 +18,7 @@ const Contact = () => {
   return (
     <ContactContainer id="contact">
       <ContactTextContainer>
-        <ContactHeader>Contact</ContactHeader>
+        <ContactHeader>CONTACT</ContactHeader>
         <ContactDescription>
           I extend a warm welcome to all of you who have taken the time to
           explore my portfolio. Your interest in my work is greatly appreciated.

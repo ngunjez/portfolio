@@ -60,6 +60,7 @@ export const NavLinks = styled.div<NavLinksProps>`
   color: #fff;
   right: 40px;
   font-size: clamp(20px, calc(1.25rem + ((1vw - 7.68px) * 0.3472)), 24px);
+  font-family: DM Sans;
   cursor: pointer;
   @media screen and (max-width: 768px) {
     position: absolute;
@@ -97,13 +98,11 @@ export const NavButton = styled.div`
 export const MobileMenuIcon = styled.div`
 @media screen and (max-width: 768px) {
   position: absolute;
-  right: 20px;
-  top: 15px;
+  right: 15px;
+  top: 25px;
   width: 45px;
   height: 45px;
-  background: #ffffff67;
   color: #fff;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,20 +110,26 @@ export const MobileMenuIcon = styled.div`
 }
 `;
 
-export const MobileMenu = styled.div`
+export const MobileMenu = styled.div<NavLinksProps>`
   position: absolute;
-  right: 20px;
-  background-color: #fff;
-  border-radius: 3px;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  color:#fff;
+  border-radius: 0;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  top: 90px;
-  padding: 25px 30px 15px;
+  padding: 85px 50px 15px;
   display: flex;
+  font-family: DM Sans;
+  font-weight: 800;
+  gap: 30px;
   box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
-  transition: display 0.3s ease-in-out;
-  gap:5px;
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(100%)")};
 `;
 
 export const MobileMenuArrow = styled.div`

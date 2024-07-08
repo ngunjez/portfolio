@@ -7,11 +7,12 @@ export const LandingContainer = styled.div`
   justify-content: center;
   position: relative;
   width: 100vw;
-  min-height: 100vh;
-  background-color: #ffffff;
+  height: 100vh;
+  background-color: #101010;
   background-image: radial-gradient(rgba(12, 12, 12, 0.06) 2px, transparent 0);
   background-size: 30px 30px;
   background-position: -5px -5px;
+  padding: 20px;
   @media screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -54,10 +55,11 @@ export const Wrapper2 = styled.div`
 `;
 
 export const WrapperText = styled.div`
-  color: #262833;
+  color: #FFFFFF;
   font-size: clamp(30px, calc(1.875rem + ((1vw - 7.68px) * 3.0382)), 65px);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 84.2%;
+  font-family: DM Sans;
   @media screen and (max-width:768px){
     text-align:center;
     line-height:90%;
@@ -68,10 +70,12 @@ export const WrapperDescription = styled.div`
   width: 65%;
   height: auto;
   flex-shrink: 0;
-  color: #192b3f;
+  color: #FFFFFF;
   font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.3472)), 20px);
   font-weight: 400;
   line-height: normal;
+  font-family: DM Sans;
+
   @media screen and (max-width: 768px) {
     width: 100%;
     display: flex;
@@ -113,9 +117,11 @@ export const Button = styled.div`
   border-radius: 8px;
   background: #1ea9a4;
   cursor: pointer;
-  color: #fff;
+  color: #FFFFFF;
+  font-family: DM Sans;
+  font-weight:400;
   &:hover {
-    background-color: #000;
+    background-color: #1ea9a4;
     transition: all 0.2s ease-in-out;
   }
 `;

@@ -9,13 +9,13 @@ export const ProjectsContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #131917;
-  padding:5% 0;
+  padding: 5% 0;
   @media screen and (max-width: 768px) {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:5% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 0 0 0;
   }
 `;
 
@@ -23,33 +23,45 @@ export const PWwrapper = styled.div`
   width: 80%;
   height: auto;
   display: flex;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0 5%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `;
 
 export const PHeader = styled.div`
   color: #fff;
   text-align: center;
   font-size: clamp(24px, calc(1.5rem + ((1vw - 7.68px) * 0.5208)), 30px);
-  font-weight: 500;
+  font-weight: 800;
   line-height: normal;
   padding: 3%;
-  font-weight: bold;
+  font-family: DM Sans;
   @media screen and (max-width: 768px) {
-    margin-top:70px;
+    margin-top: 30px;
   }
 `;
 
 export const PCardContainer = styled.div`
   position: relative;
   max-width: 100%;
-  min-height: 100vh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   @media screen and (max-width: 768px) {
-    width: 100%;
-    height: 100%;
-    gap:10px;
+    width: max-content;
+    height: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 20px 0;
   }
 `;
 
@@ -83,6 +95,12 @@ export const PCasesCard = styled.div`
       transform: scale(1.1);
     }
   }
+  @media screen and (max-width: 768px) {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 400px;
+    margin: 0 10px;
+  }
 `;
 
 export const PCasesBody = styled.div`
@@ -92,7 +110,7 @@ export const PCasesBody = styled.div`
   align-items: flex-start;
   height: 222px;
   flex-direction: column;
-  gap:5px;
+  gap: 5px;
   @media screen and (max-width: 768px) {
     padding: 15px 10px 20px 10px;
   }
@@ -128,5 +146,6 @@ export const PButtonContainer = styled.div`
 export const ReadMoreText = styled(PCasesText)`
   color: rgba(255, 255, 255, 0.8);
   font-size: 16px;
-  cursor:pointer;
+  cursor: pointer;
 `;
+
