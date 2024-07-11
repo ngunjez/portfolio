@@ -18,15 +18,15 @@ import HomeLayout from "@/Layout/Layout";
 import styled from "styled-components";
 
 const projectUrls = [
-  "https://www.brokerbox.app/",
+  "https://www.xntree.co/",
   "https://www.eqcap.fund/",
+  "https://www.dollarmarkets.africa/",
+  "https://www.bettercallpaul.world/",
   "https://www.code3camp.dev/",
   "https://parallel-88-fd73osf7e-parallel-88.vercel.app/",
   "https://www.peer2peer.pro/",
   "https://www.skyswyp.co/",
-  "https://www.xntree.co/",
-  "https://www.bettercallpaul.world/",
-  "https://www.dollarmarkets.africa/",
+  "https://www.brokerbox.app/",
 ];
 
 const smartCityCases = [
