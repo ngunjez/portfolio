@@ -28,11 +28,12 @@ export const AboutContainer = styled.div`
 export const AboutHeader = styled.div`
   color: #1a3f34;
   text-align: center;
-  font-size: clamp(24px, calc(1.5rem + ((1vw - 7.68px) * 0.5208)), 30px);
+  font-size: clamp(30px, calc(1.5rem + ((1vw - 7.68px) * 0.5208)), 65px);
   font-weight: 500;
+  font-family: Poppins;
   line-height: normal;
   padding: 3%;
-  font-weight: bold;
+  // font-weight: bold;
   @media screen and (max-width: 768px) {
     margin-top: 70px;
   }
@@ -64,9 +65,9 @@ export const AboutText = styled.div`
   line-height: 1.5;
   font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.3472)), 20px);
   font-weight: 500;
-  font-family: DM Sans;
+  font-family: Poppins;
   color: #000000;
-  text-align: center;
+  text-align: left;
   @media screen and (max-width: 768px) {
     width: 100%;
     text-align: center;
@@ -145,6 +146,6 @@ export const AboutTitles = styled.div`
 
 export const Title = styled.div`
   font-size: clamp(16px, calc(0.875rem + ((1vw - 7.68px) * 0.1736)), 18px);
-  font-family: DM Sans;
-  font-weight:450;
+  font-family: Poppins;
+  font-weight:500;
 `;

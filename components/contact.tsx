@@ -23,20 +23,14 @@ const Contact = () => {
           I extend a warm welcome to all of you who have taken the time to
           explore my portfolio. Your interest in my work is greatly appreciated.
           I am always open to discussing potential collaboration opportunities.
-          If you find my work aligns with your interests and you&rsquo;re interested
-          in exploring opportunities to work together, please don&rsquo;t hesitate to
-          reach out. Feel free to contact me at your convenience, and I&rsquo;ll be
-          happy to discuss how we can create something meaningful together.
+          If you find my work aligns with your interests and you&rsquo;re
+          interested in exploring opportunities to work together, please
+          don&rsquo;t hesitate to reach out. Feel free to contact me at your
+          convenience, and I&rsquo;ll be happy to discuss how we can create
+          something meaningful together.
         </ContactDescription>
         <Fade direction="up" triggerOnce>
           <ContactLinks>
-            <Link
-              href="https://twitter.com/Ngunjiri29"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Twitter></Twitter>
-            </Link>
             <Link
               href="https://www.linkedin.com/in/owen-ngunjiri-b19a7324a/"
               target="_blank"
@@ -44,10 +38,26 @@ const Contact = () => {
             >
               <LinkedIn></LinkedIn>
             </Link>
-            <Link href="mailto:owen2ngunjiri@gmail.com" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://twitter.com/Ngunjiri29"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Twitter></Twitter>
+            </Link>
+
+            <Link
+              href="mailto:owen2ngunjiri@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Email></Email>
             </Link>
-            <Link href="https://github.com/ngunjez" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://github.com/ngunjez"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Github></Github>
             </Link>
           </ContactLinks>

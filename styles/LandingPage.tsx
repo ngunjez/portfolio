@@ -59,7 +59,7 @@ export const WrapperText = styled.div`
   font-size: clamp(30px, calc(1.875rem + ((1vw - 7.68px) * 3.0382)), 65px);
   font-weight: 500;
   line-height: 84.2%;
-  font-family: DM Sans;
+  font-family: Poppins;
   @media screen and (max-width:768px){
     text-align:center;
     line-height:90%;
@@ -74,7 +74,7 @@ export const WrapperDescription = styled.div`
   font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.3472)), 20px);
   font-weight: 400;
   line-height: normal;
-  font-family: DM Sans;
+  font-family: Poppins;
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -119,7 +119,7 @@ export const Button = styled.div`
   cursor: pointer;
   color: #FFFFFF;
   font-family: DM Sans;
-  font-weight:400;
+  font-weight:500;
   &:hover {
     background-color: #1ea9a4;
     transition: all 0.2s ease-in-out;

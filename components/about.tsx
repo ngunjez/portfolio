@@ -18,13 +18,13 @@ const TechStack = [
   {
     title: "Frontend",
     tech: [
-      "React js",
+      "React JS",
       "Javascript",
       "Typescript",
       "HTML & CSS",
       "Next js",
       "Material UI",
-      "Vue",
+      "Vue JS",
       "Styled -",
       "Components",
     ],
@@ -55,8 +55,9 @@ const About = () => {
           Beyond coding, I am an avid outdoor enthusiast who enjoys travel,
           football, and captivating films. I aim to create meaningful change in
           the digital landscape through my dedication and mission-driven work
-          ethic. I look forward to contributing significantly to a high-growth
-          company.
+          ethic.
+           {/* I look forward to contributing significantly to a high-growth
+          company. */}
         </AboutText>
         <AboutPic></AboutPic>
       </AboutTextContainer>

@@ -25,7 +25,7 @@ const projectUrls = [
   "https://www.code3camp.dev/",
   "https://parallel-88-fd73osf7e-parallel-88.vercel.app/",
   "https://www.peer2peer.pro/",
-  "https://www.skyswyp.co/",
+  "https://skyswyp.vercel.app/",
   "https://www.brokerbox.app/",
 ];
 
@@ -77,10 +77,10 @@ const smartCityCases = [
   },
 ];
 
-const ScrollArrow = styled.div<{ direction: 'right' }>`
+const ScrollArrow = styled.div<{ direction: 'right' | 'left' }>`
   display: none;
   position: absolute;
-  right: 10px;
+  ${({ direction }) => (direction === 'right' ? 'right: 10px;' : 'left: 10px;')}
   top: 50%;
   transform: translateY(-50%);
   width: 40px;
@@ -94,7 +94,7 @@ const ScrollArrow = styled.div<{ direction: 'right' }>`
   animation: pulse 1.5s infinite;
 
   &::after {
-    content: '→';
+     content: ${({ direction }) => (direction === 'right' ? "'→'" : "'←'")};
     color: white;
     font-size: 24px;
   }
@@ -122,6 +122,7 @@ const ScrollArrow = styled.div<{ direction: 'right' }>`
 
 const Projects = () => {
   const [showRightArrow, setShowRightArrow] = useState(true);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -144,15 +145,16 @@ const Projects = () => {
     if (wrapperRef.current) {
       const { scrollWidth, clientWidth, scrollLeft } = wrapperRef.current;
       setShowRightArrow(scrollLeft + clientWidth < scrollWidth - 1);
+      setShowLeftArrow(scrollLeft > 0);
     }
   };
 
-  const handleScroll = () => {
+  const handleScroll = (direction: 'left' | 'right') => {
     if (wrapperRef.current) {
       const scrollAmount = wrapperRef.current.clientWidth * 0.8;
       wrapperRef.current.scrollBy({
-        left: scrollAmount,
-        behavior: 'smooth'
+        left: direction === 'right' ? scrollAmount : -scrollAmount,
+        behavior: 'smooth',
       });
     } else {
     }
@@ -190,12 +192,16 @@ const Projects = () => {
             </PCasesCard>
           ))}
         </PCardContainer>
+        {showLeftArrow && (
+          <ScrollArrow 
+            direction="left" 
+            onClick={() => handleScroll('left')}
+          />
+        )}
         {showRightArrow && (
           <ScrollArrow 
             direction="right" 
-            onClick={() => {
-              handleScroll();
-            }}
+            onClick={() => handleScroll('right')}
           />
         )}
       </PWwrapper>

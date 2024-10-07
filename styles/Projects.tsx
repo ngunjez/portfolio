@@ -39,10 +39,10 @@ export const PHeader = styled.div`
   color: #fff;
   text-align: center;
   font-size: clamp(24px, calc(1.5rem + ((1vw - 7.68px) * 0.5208)), 30px);
-  font-weight: 800;
+  font-weight: 500;
   line-height: normal;
   padding: 3%;
-  font-family: DM Sans;
+  font-family: Poppins;
   @media screen and (max-width: 768px) {
     margin-top: 30px;
   }
@@ -56,6 +56,7 @@ export const PCardContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+
   @media screen and (max-width: 768px) {
     width: max-content;
     height: auto;
@@ -68,6 +69,8 @@ export const PCardContainer = styled.div`
 export const PImageContainer = styled.div`
   width: 100%;
   height: 191px;
+   font-family: Poppins;
+  font-weight: 500;
   mix-blend-mode: normal;
   img {
     transition: transform 0.3s ease-in-out;
@@ -90,6 +93,8 @@ export const PCasesCard = styled.div`
   margin: 2%;
   overflow: hidden;
   box-sizing: border-box;
+  font-family: Poppins;
+  font-weight: 500;
   &:hover {
     ${PImageContainer} img {
       transform: scale(1.1);
@@ -111,6 +116,8 @@ export const PCasesBody = styled.div`
   height: 222px;
   flex-direction: column;
   gap: 5px;
+   font-family: Poppins;
+  font-weight: 500;
   @media screen and (max-width: 768px) {
     padding: 15px 10px 20px 10px;
   }
