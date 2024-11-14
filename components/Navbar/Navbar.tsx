@@ -48,7 +48,9 @@ const Navbar = () => {
   return (
     <StyleSheetManager shouldForwardProp={(prop) => prop !== "isOpen"}>
       <NavbarContainer>
-        <NavLogo onClick={() => handleNavigation("/")}></NavLogo>
+        <NavLogo onClick={() => handleNavigation("/")}>
+          {/* <Image src="/logo.png" alt="logo" width={100} height={50} /> */}
+        </NavLogo>
 
         <NavLinks isOpen={isOpen} ref={modalContainerRef}>
           {navigationItems.map((item, index) => (

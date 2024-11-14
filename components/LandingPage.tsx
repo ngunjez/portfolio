@@ -12,10 +12,11 @@ import { Fade } from "react-awesome-reveal";
 import HomeLayout from "@/Layout/Layout";
 import Image from "next/image";
 import revamp2 from "@/public/revamp2.webp";
+import fav2 from "@/public/fav2.jpg";
 
 
 const downloadCV = () => {
-  const cvFileName = 'cv.pdf';
+  const cvFileName = 'Rcv.pdf';
   const cvFileUrl = '/' + cvFileName;  
 
   console.log('CV File URL:', cvFileUrl);
@@ -44,10 +45,10 @@ const LandingPage = () => {
         <Fade direction="up" triggerOnce>
         <WrapperImage>
           <Image
-          src={revamp2}
+          src={fav2}
           alt= "picture of me"
-          width={355}
-          height={250}
+          width={250}
+          height={300}
           />
         </WrapperImage>
         </Fade>

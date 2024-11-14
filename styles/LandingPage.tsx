@@ -94,7 +94,6 @@ export const WrapperImageStyles = css`
   @media screen and (max-width: 768px) {
     width: 100%;
     height: auto;
-    margin-right: 90px;
     align-items: center;
     justify-content: center;
   }
