@@ -14,32 +14,40 @@ export const NavbarContainer = styled.nav`
   padding: 0 50px;
   align-items: center;
   z-index: 20;
-  @media screen and (max-width:768px){
-    width:100vw;
-    height:9.5%;
+  @media screen and (max-width: 768px) {
+    width: 100vw;
+    height: 9.5%;
     /* background-color:red; */
   }
-  @media screen and (max-width:380px){
-    height:12%;
+  @media screen and (max-width: 380px) {
+    height: 12%;
   }
 `;
 
 export const NavLogo = styled.div`
   position: absolute;
   height: 100%;
-  width: 15vw;
+  // width: 15vw;
   display: flex;
-  background-image: url("/Logo.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color:inherit;
+  align-items: center;
+  justify-content: center;
+  // background-image: url("/Logo.png");
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-color:inherit;
   cursor: pointer;
-  @media screen and (max-width: 1290px) {
-    width:20%;
+  h1{
+   font-family: Moirai One;
+  font-size: clamp(3.25rem, calc(3.25rem + ((1vw - 0.48rem) * -1.5625)), 2.125rem);
+font-weight: 600;
+  color: #FFF;
   }
-  @media screen and (max-width: 1100px){
-    width:40%;
+  @media screen and (max-width: 1290px) {
+    width: 20%;
+  }
+  @media screen and (max-width: 1100px) {
+    width: 40%;
   }
   @media screen and (max-width: 768px) {
     height: 65px;
@@ -86,7 +94,7 @@ export const NavButton = styled.div`
   letter-spacing: 2px;
   background: none;
   font-family: Inter;
-  
+
   &:hover {
     text-decoration: underline;
   }
@@ -97,18 +105,18 @@ export const NavButton = styled.div`
 `;
 
 export const MobileMenuIcon = styled.div`
-@media screen and (max-width: 768px) {
-  position: absolute;
-  right: 15px;
-  top: 25px;
-  width: 45px;
-  height: 45px;
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    right: 15px;
+    top: 25px;
+    width: 45px;
+    height: 45px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
 `;
 
 export const MobileMenu = styled.div<NavLinksProps>`
@@ -118,7 +126,7 @@ export const MobileMenu = styled.div<NavLinksProps>`
   width: 100%;
   height: 100vh;
   background-color: #000;
-  color:#fff;
+  color: #fff;
   border-radius: 0;
   flex-direction: column;
   justify-content: flex-start;
@@ -150,7 +158,8 @@ export const NavigationItems = styled.div`
   display: none;
 
   @media screen and (min-width: 900px) {
-    &.NavMobile, &.NavMenuIcon {
+    &.NavMobile,
+    &.NavMenuIcon {
       display: none;
     }
   }

@@ -16,7 +16,7 @@ import fav2 from "@/public/fav2.jpg";
 
 
 const downloadCV = () => {
-  const cvFileName = 'Rcv.pdf';
+  const cvFileName = 'Rcv2.pdf';
   const cvFileUrl = '/' + cvFileName;  
 
   console.log('CV File URL:', cvFileUrl);
@@ -33,7 +33,7 @@ const LandingPage = () => {
       <Wrapper>
         <Wrapper2>
           <Fade direction="up" triggerOnce>
-            <WrapperText>FRONTEND DEVELOPER</WrapperText>
+            <WrapperText>FRONTEND ENGINEER</WrapperText>
             <WrapperDescription>
               I am a skilled frontend developer with a strong grasp of both web2
               and web3 technologies, adept at crafting intuitive user interfaces

@@ -49,6 +49,7 @@ const Navbar = () => {
     <StyleSheetManager shouldForwardProp={(prop) => prop !== "isOpen"}>
       <NavbarContainer>
         <NavLogo onClick={() => handleNavigation("/")}>
+          <h1>OWEN</h1>
           {/* <Image src="/logo.png" alt="logo" width={100} height={50} /> */}
         </NavLogo>
 

@@ -101,10 +101,23 @@ export const WrapperImageStyles = css`
 
 export const WrapperImage = styled.div`
   ${WrapperImageStyles}
+   transform: rotate(5deg); /* Adjust the angle to slant the card */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); /* Add a shadow for depth */
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: rotate(-5deg) scale(1.05); /* Slight scaling on hover */
+  }
+
+  @media screen and (max-width: 768px) {
+    transform: rotate(0deg); /* Remove the slant for smaller screens */
+  }
 `;
 
 export const Image = styled.img`
   ${WrapperImageStyles}
+  border-radius: 30px;
+
 `;
 
 export const Button = styled.div`
