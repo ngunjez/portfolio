@@ -17,7 +17,6 @@ export const NavbarContainer = styled.nav`
   @media screen and (max-width: 768px) {
     width: 100vw;
     height: 9.5%;
-    /* background-color:red; */
   }
   @media screen and (max-width: 380px) {
     height: 12%;
