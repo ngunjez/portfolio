@@ -25,23 +25,22 @@ export const NavbarContainer = styled.nav`
 `;
 
 export const NavLogo = styled.div`
-  position: absolute;
+  position: fixed;
   height: 100%;
-  // width: 15vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  // background-image: url("/Logo.png");
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // background-color:inherit;
   cursor: pointer;
-  h1{
-   font-family: Moirai One;
-  font-size: clamp(3.25rem, calc(3.25rem + ((1vw - 0.48rem) * -1.5625)), 2.125rem);
-font-weight: 600;
-  color: #FFF;
+  h1 {
+    font-family: Moirai One;
+    font-size: clamp(
+      3.25rem,
+      calc(3.25rem + ((1vw - 0.48rem) * -2.3437)),
+      1.5625rem
+    );
+
+    font-weight: 600;
+    color: #fff;
   }
   @media screen and (max-width: 1290px) {
     width: 20%;

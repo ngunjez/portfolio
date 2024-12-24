@@ -2,7 +2,7 @@ import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
-
+import HomeLayout from '@/Layout/Layout';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -13,7 +13,7 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout || ((page) => page);
+  const getLayout = Component.getLayout || ((page) => <HomeLayout>{page}</HomeLayout>);
 
   return getLayout(<Component {...pageProps} />);
 }
