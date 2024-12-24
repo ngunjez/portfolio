@@ -69,6 +69,7 @@ export const Container = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
+  background: e8e8e8;
 `;
 
 export const LoaderBase = styled.div`
