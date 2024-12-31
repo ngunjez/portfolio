@@ -22,11 +22,11 @@ const projectUrls = [
   "https://www.eqcap.fund/",
   "https://www.dollarmarkets.africa/",
   "https://www.bettercallpaul.world/",
-  "https://www.code3camp.dev/",
   "https://parallel-88-fd73osf7e-parallel-88.vercel.app/",
+  "https://www.code3camp.dev/",
   "https://www.peer2peer.pro/",
   "https://skyswyp.vercel.app/",
-  "https://www.brokerbox.app/",
+  "https://brokerbox-v2.vercel.app/",
 ];
 
 const smartCityCases = [
@@ -51,15 +51,16 @@ const smartCityCases = [
     imageSrc: "/bcp.png",
   },
   {
-    title: "Code3camp",
-    description: "Next js, Typescript, Styled-Components, Material UI",
-    imageSrc: "/code3camp.jpg",
-  },
-  {
     title: "Parallel88",
     description: "Next js, Javascript",
     imageSrc: "/p88.jpg",
   },
+  {
+    title: "Code3camp",
+    description: "Next js, Typescript, Styled-Components, Material UI",
+    imageSrc: "/code3camp.jpg",
+  },
+
   {
     title: "P2P Processor",
     description: "Next js, Javscript, Web3.js, Nodejs",
@@ -77,10 +78,10 @@ const smartCityCases = [
   },
 ];
 
-const ScrollArrow = styled.div<{ direction: 'right' | 'left' }>`
+const ScrollArrow = styled.div<{ direction: "right" | "left" }>`
   display: none;
   position: absolute;
-  ${({ direction }) => (direction === 'right' ? 'right: 10px;' : 'left: 10px;')}
+  ${({ direction }) => (direction === "right" ? "right: 10px;" : "left: 10px;")}
   top: 50%;
   transform: translateY(-50%);
   width: 40px;
@@ -94,7 +95,7 @@ const ScrollArrow = styled.div<{ direction: 'right' | 'left' }>`
   animation: pulse 1.5s infinite;
 
   &::after {
-     content: ${({ direction }) => (direction === 'right' ? "'→'" : "'←'")};
+    content: ${({ direction }) => (direction === "right" ? "'→'" : "'←'")};
     color: white;
     font-size: 24px;
   }
@@ -119,7 +120,6 @@ const ScrollArrow = styled.div<{ direction: 'right' | 'left' }>`
   }
 `;
 
-
 const Projects = () => {
   const [showRightArrow, setShowRightArrow] = useState(true);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
@@ -128,15 +128,15 @@ const Projects = () => {
   useEffect(() => {
     const wrapper = wrapperRef.current;
     if (wrapper) {
-      wrapper.addEventListener('scroll', checkScroll);
-      window.addEventListener('resize', checkScroll);
+      wrapper.addEventListener("scroll", checkScroll);
+      window.addEventListener("resize", checkScroll);
       checkScroll();
     }
 
     return () => {
       if (wrapper) {
-        wrapper.removeEventListener('scroll', checkScroll);
-        window.removeEventListener('resize', checkScroll);
+        wrapper.removeEventListener("scroll", checkScroll);
+        window.removeEventListener("resize", checkScroll);
       }
     };
   }, []);
@@ -149,12 +149,12 @@ const Projects = () => {
     }
   };
 
-  const handleScroll = (direction: 'left' | 'right') => {
+  const handleScroll = (direction: "left" | "right") => {
     if (wrapperRef.current) {
       const scrollAmount = wrapperRef.current.clientWidth * 0.8;
       wrapperRef.current.scrollBy({
-        left: direction === 'right' ? scrollAmount : -scrollAmount,
-        behavior: 'smooth',
+        left: direction === "right" ? scrollAmount : -scrollAmount,
+        behavior: "smooth",
       });
     } else {
     }
@@ -193,15 +193,12 @@ const Projects = () => {
           ))}
         </PCardContainer>
         {showLeftArrow && (
-          <ScrollArrow 
-            direction="left" 
-            onClick={() => handleScroll('left')}
-          />
+          <ScrollArrow direction="left" onClick={() => handleScroll("left")} />
         )}
         {showRightArrow && (
-          <ScrollArrow 
-            direction="right" 
-            onClick={() => handleScroll('right')}
+          <ScrollArrow
+            direction="right"
+            onClick={() => handleScroll("right")}
           />
         )}
       </PWwrapper>
