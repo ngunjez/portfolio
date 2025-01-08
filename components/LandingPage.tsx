@@ -16,7 +16,7 @@ import fav2 from "@/public/fav2.jpg";
 
 
 const downloadCV = () => {
-  const cvFileName = 'Rcv2.pdf';
+  const cvFileName = 'Rcv3.pdf';
   const cvFileUrl = '/' + cvFileName;  
 
   console.log('CV File URL:', cvFileUrl);
