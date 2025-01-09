@@ -32,7 +32,7 @@ export default function HomeLayout({ children }: HomeLayoutProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000); // Adjust loading time as needed
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
