@@ -23,7 +23,7 @@ const projectUrls = [
   "https://www.dollarmarkets.africa/",
   "https://www.bettercallpaul.world/",
   "https://parallel-88-fd73osf7e-parallel-88.vercel.app/",
-  "https://www.code3camp.dev/",
+  "https://code3camp.vercel.app/",
   "https://www.peer2peer.pro/",
   "https://skyswyp.vercel.app/",
   "https://brokerbox-v2.vercel.app/",
