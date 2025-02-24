@@ -1,9 +1,10 @@
-import Head from 'next/head';
-import '@/styles/globals.css';
-import type { AppProps } from 'next/app';
-import { ReactElement, ReactNode } from 'react';
-import { NextPage } from 'next';
-import HomeLayout from '@/Layout/Layout';
+import Head from "next/head";
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
+import { ReactElement, ReactNode } from "react";
+import { NextPage } from "next";
+import HomeLayout from "@/Layout/Layout";
+import { Analytics } from "@vercel/analytics/react";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -14,13 +15,14 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout || ((page) => <HomeLayout>{page}</HomeLayout>);
+  const getLayout =
+    Component.getLayout || ((page) => <HomeLayout>{page}</HomeLayout>);
 
   return getLayout(
     <>
       <Head>
         {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-630F47ENYK"></script>
+        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-630F47ENYK"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -30,7 +32,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
               gtag('config', 'G-630F47ENYK');
             `,
           }}
-        />
+        /> */}
+        <Analytics />
       </Head>
       <Component {...pageProps} />
     </>

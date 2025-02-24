@@ -35,7 +35,7 @@ export const AboutHeader = styled.div`
   padding: 3%;
   // font-weight: bold;
   @media screen and (max-width: 768px) {
-    margin-top: 70px;
+    margin-top: 40px;
   }
 `;
 

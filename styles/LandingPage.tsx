@@ -35,7 +35,7 @@ export const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
     width: 95%;
-    // margin-top: 80px;
+    margin-top: 80px;
     gap: 20px;
   }
 `;
@@ -46,11 +46,13 @@ export const Wrapper2 = styled.div`
   gap: 50px;
   align-items: flex-start;
   margin-top: 50px;
+  // border: 1px solid red;
   @media screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap:30px;
+    margin-top: 0px;
   }
 `;
 

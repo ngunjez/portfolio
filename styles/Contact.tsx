@@ -3,11 +3,13 @@ import styled, { keyframes } from "styled-components";
 export const ContactContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #fff;
+  padding: 5% 0;
   @media screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -17,13 +19,13 @@ export const ContactContainer = styled.div`
     height: 100%;
   }
   @media screen and (max-width: 550px) {
-    height: 100vh;
+    height: 100%;
   }
   @media screen and (max-width: 410px) {
     height: 100%;
   }
   @media screen and (max-width: 395px) {
-    height: 100vh;
+    height: 100%;
   }
   @media screen and (max-width: 376px) {
     height: 100%;
@@ -37,6 +39,8 @@ export const ContactContainer = styled.div`
 `;
 
 export const ContactHeader = styled.div`
+  dislay: flex;
+  // margin-top: 4%;
   color: #000;
   text-align: center;
   font-size: clamp(24px, calc(1.5rem + ((1vw - 7.68px) * 0.5208)), 30px);
@@ -44,7 +48,7 @@ export const ContactHeader = styled.div`
   line-height: normal;
   font-family: Poppins;
   @media screen and (max-width: 768px) {
-    margin-top: 25%;
+    // margin-top: 25%;
   }
   @media screen and (max-width: 290px) {
     margin-top: 35%;
@@ -61,6 +65,11 @@ export const ContactTextContainer = styled.div`
   justify-content: center;
   padding: 5% 0;
   gap: 50px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 0;
+    gap: 20px;
+  }
 `;
 
 export const ContactDescription = styled.div`
@@ -147,4 +156,116 @@ export const Github = styled.div`
   &:hover {
     background-color: #6e85b7;
   }
+`;
+
+export const ContactSectionsContainer = styled.div`
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 5% 5%;
+  // gap: 20px;
+  // border: 1px solid red;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 10% 20px;
+    gap: 30px;
+    // border: 1px solid red;
+    width: 100%;
+  }
+`;
+
+export const LeftSection = styled.div`
+  flex: 1;
+  max-width: 50%;
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
+`;
+
+export const RightSection = styled.div`
+  flex: 1;
+  max-width: 50%;
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    width: 100%;
+  }
+`;
+
+export const FormContainer = styled.div`
+  width: 100%;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+`;
+
+export const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const StyledInput = styled.input`
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Poppins;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #6e85b7;
+  }
+`;
+
+export const StyledTextarea = styled.textarea`
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Poppins;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #6e85b7;
+  }
+`;
+
+export const StyledButton = styled.button`
+  padding: 12px 24px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Poppins;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #6e85b7;
+  }
+`;
+
+export const ErrorMessage = styled.div`
+  color: #ff0000;
+  font-size: 14px;
+  text-align: center;
+`;
+
+export const SuccessMessage = styled.div`
+  color: #00aa00;
+  font-size: 14px;
+  text-align: center;
 `;
