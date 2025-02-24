@@ -38,10 +38,10 @@ const Contact = () => {
 
     try {
       await emailjs.sendForm(
-        'service_8z5f559',  // Your EmailJS service ID
-        'template_z1bkhuj', // Your EmailJS template ID
+        'service_8z5f559',  
+        'template_z1bkhuj', 
         form.current || '',
-        'bDz8NCcvFhjo0DxjU' // Your EmailJS public key
+        'bDz8NCcvFhjo0DxjU' 
       );
 
       setStatus({ error: "", success: "Message sent successfully!" });
@@ -75,25 +75,18 @@ const Contact = () => {
                   <LinkedIn></LinkedIn>
                 </Link>
                 <Link
-                  href="https://twitter.com/Ngunjiri29"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Twitter></Twitter>
-                </Link>
-                <Link
-                  href="mailto:owen2ngunjiri@gmail.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Email></Email>
-                </Link>
-                <Link
                   href="https://github.com/ngunjez"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Github></Github>
+                </Link>
+                <Link
+                  href="https://twitter.com/Ngunjiri29"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Twitter></Twitter>
                 </Link>
               </ContactLinks>
             </Fade>
