@@ -27,9 +27,15 @@ const projectUrls = [
   "https://www.peer2peer.pro/",
   "https://skyswyp.vercel.app/",
   "https://brokerbox-v2.vercel.app/",
+  "https://app.dollarsapp.ai/copytrading",
 ];
 
 const smartCityCases = [
+  {
+    title: "Dollars App",
+    description: "Next js,Typescript, Material UI,Javascript",
+    imageSrc: "/d2.png",
+  },
   {
     title: "Xntree",
     description: "Next js,Typescript, Styled-Components",

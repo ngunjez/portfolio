@@ -56,8 +56,6 @@ const About = () => {
           football, and captivating films. I aim to create meaningful change in
           the digital landscape through my dedication and mission-driven work
           ethic.
-           {/* I look forward to contributing significantly to a high-growth
-          company. */}
         </AboutText>
         <AboutPic></AboutPic>
       </AboutTextContainer>

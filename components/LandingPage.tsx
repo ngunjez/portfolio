@@ -11,7 +11,6 @@ import React from "react";
 import { Fade } from "react-awesome-reveal";
 import HomeLayout from "@/Layout/Layout";
 import Image from "next/image";
-import revamp2 from "@/public/revamp2.webp";
 import fav2 from "@/public/fav2.jpg";
 
 
@@ -35,7 +34,7 @@ const LandingPage = () => {
           <Fade direction="up" triggerOnce>
             <WrapperText>FRONTEND ENGINEER</WrapperText>
             <WrapperDescription>
-              I am a skilled frontend developer with a strong grasp of both web2
+              I am an experienced frontend engineer with a strong grasp of both web2
               and web3 technologies, adept at crafting intuitive user interfaces
               for both conventional and decentralized web applications.
             </WrapperDescription>

@@ -33,7 +33,6 @@ export const AboutHeader = styled.div`
   font-family: Poppins;
   line-height: normal;
   padding: 3%;
-  // font-weight: bold;
   @media screen and (max-width: 768px) {
     margin-top: 40px;
   }

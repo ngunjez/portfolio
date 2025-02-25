@@ -10,7 +10,6 @@ import {
   ContactHeader,
   ContactLinks,
   ContactTextContainer,
-  Email,
   Github,
   LinkedIn,
   Twitter,

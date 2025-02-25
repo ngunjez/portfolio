@@ -40,7 +40,6 @@ export const ContactContainer = styled.div`
 
 export const ContactHeader = styled.div`
   dislay: flex;
-  // margin-top: 4%;
   color: #000;
   text-align: center;
   font-size: clamp(24px, calc(1.5rem + ((1vw - 7.68px) * 0.5208)), 30px);
@@ -164,15 +163,12 @@ export const ContactSectionsContainer = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   padding: 5% 5%;
-  // gap: 20px;
-  // border: 1px solid red;
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: center;
     padding: 10% 20px;
     gap: 30px;
-    // border: 1px solid red;
     width: 100%;
   }
 `;

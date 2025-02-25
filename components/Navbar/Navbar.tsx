@@ -2,7 +2,6 @@ import {
   NavLinks,
   NavLogo,
   NavbarContainer,
-  NavButton,
   MobileMenuIcon,
   MobileMenu,
 } from "@/styles/Navbar/Navbar";
@@ -50,7 +49,6 @@ const Navbar = () => {
       <NavbarContainer>
         <NavLogo onClick={() => handleNavigation("/")}>
           <h1>OWEN</h1>
-          {/* <Image src="/logo.png" alt="logo" width={100} height={50} /> */}
         </NavLogo>
 
         <NavLinks isOpen={isOpen} ref={modalContainerRef}>
