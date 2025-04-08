@@ -1,140 +1,302 @@
-import styled, { css } from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { motion } from "framer-motion";
 
+const gradientAnimation = keyframes`
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+`;
+
+const float = keyframes`
+  0% {
+    transform: translateY(0px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(5deg);
+  }
+`;
+
+const pulse = keyframes`
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+`;
+
+const scrollDown = keyframes`
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+`;
+
+// Main container
 export const LandingContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #0a0a0a;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+export const ParticleCanvas = styled.canvas`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+`;
+
+export const HeroSection = styled.div`
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-color: #101010;
-  background-image: radial-gradient(rgba(12, 12, 12, 0.06) 2px, transparent 0);
-  background-size: 30px 30px;
-  background-position: -5px -5px;
-  padding: 20px;
-  @media screen and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-`;
-
-export const Wrapper = styled.div`
-  display: flex;
-  height: auto;
+  z-index: 2;
   width: 80%;
-  border: none;
-  gap: 2px;
-  margin-top: 110px;
-  @media screen and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 95%;
-    margin-top: 80px;
-    gap: 20px;
-  }
-`;
-
-export const Wrapper2 = styled.div`
+  padding: 0 40px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  align-items: flex-start;
-  margin-top: 50px;
-  @media screen and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap:30px;
-    margin-top: 0px;
-  }
-`;
+  justify-content: center;
+  height: 90vh;
 
-export const WrapperText = styled.div`
-  color: #FFFFFF;
-  font-size: clamp(30px, calc(1.875rem + ((1vw - 7.68px) * 3.0382)), 65px);
-  font-weight: 500;
-  line-height: 84.2%;
-  font-family: Poppins;
-  @media screen and (max-width:768px){
-    text-align:center;
-    line-height:90%;
-  }
-`;
-
-export const WrapperDescription = styled.div`
-  width: 65%;
-  height: auto;
-  flex-shrink: 0;
-  color: #FFFFFF;
-  font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.3472)), 20px);
-  font-weight: 400;
-  line-height: normal;
-  font-family: Poppins;
-
-  @media screen and (max-width: 768px) {
+  @media (max-width: 768px) {
+    padding: 0 10px;
+    height: 100vh;
     width: 100%;
-    display: flex;
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 30px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 50px;
+  }
+`;
+
+export const InfoSection = styled.div`
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media (max-width: 1024px) {
     align-items: center;
-    justify-content: center;
+    max-width: 100%;
+  }
+`;
+
+export const ProfileTitle = styled.h1`
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  margin: 0;
+  line-height: 1.1;
+  position: relative;
+
+  span {
+    background: linear-gradient(90deg, #ffffff, #1ea9a4, #ffffff);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: ${gradientAnimation} 4s ease infinite;
+  }
+
+  @media (max-width: 768px) {
     text-align: center;
   }
 `;
 
-export const WrapperImageStyles = css`
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px 10px 5px 10px;
-  background-position: center;
-  background-size: cover;
-  @media screen and (max-width: 768px) {
+export const ProfileDescription = styled.p`
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+`;
+
+export const HighlightedText = styled.span`
+  color: #1ea9a4;
+  font-weight: 600;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
     width: 100%;
-    height: auto;
-    align-items: center;
-    justify-content: center;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #1ea9a4;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
   }
 `;
 
-export const WrapperImage = styled.div`
-  ${WrapperImageStyles}
-   transform: rotate(5deg); /* Adjust the angle to slant the card */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); /* Add a shadow for depth */
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: rotate(-5deg) scale(1.05); /* Slight scaling on hover */
-  }
-
-  @media screen and (max-width: 768px) {
-    transform: rotate(0deg); /* Remove the slant for smaller screens */
-  }
-`;
-
-export const Image = styled.img`
-  ${WrapperImageStyles}
-  border-radius: 30px;
-
-`;
-
-export const Button = styled.div`
+export const ImageContainer = styled.div`
+  flex: 0.8;
   display: flex;
-  padding: 15px 36px;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    max-width: 350px;
+  }
+`;
+
+export const ProfileImage = styled.div`
+  position: relative;
+  width: 300px;
+  height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(30, 169, 164, 0.3) 0%,
+      rgba(0, 0, 0, 0) 60%
+    );
+    z-index: 1;
+  }
+
+  img {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+  }
+
+  animation: ${float} 6s ease-in-out infinite;
+
+  @media (max-width: 768px) {
+    width: 250px;
+    height: 300px;
+    animation: none;
+  }
+`;
+
+export const ActionButton = styled(motion.button)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 30px;
   border-radius: 8px;
-  background: #1ea9a4;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "DM Sans", sans-serif;
+  color: white;
+  background: linear-gradient(90deg, #1ea9a4, #25c5c0);
+  border: none;
   cursor: pointer;
-  color: #FFFFFF;
-  font-family: DM Sans;
-  font-weight:500;
-  &:hover {
-    background-color: #1ea9a4;
-    transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 15px rgba(30, 169, 164, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.7s ease;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  .download-icon {
+    font-size: 20px;
+    animation: ${pulse} 2s infinite;
+  }
+`;
+
+export const ScrollIndicator = styled.div`
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: #1ea9a4;
+    margin-left: -3px;
+    border-radius: 50%;
+    animation: ${scrollDown} 2s infinite;
   }
 `;
