@@ -13,10 +13,12 @@ import {
   ProjectCardBody,
   ProjectCardTitle,
   ProjectCardText,
-  ProjectCardLink
+  ProjectCardLink,
 } from "@/styles/Projects";
-
+ 
 const projectUrls = [
+  "https://www.epicafricansafaris.africa/",
+  "https://www.tinyassistants.ai/",
   "https://app.dollarsapp.ai/copytrading",
   "https://www.xntree.co/",
   "https://www.eqcap.fund/",
@@ -28,8 +30,18 @@ const projectUrls = [
   "https://skyswyp.vercel.app/",
   "https://brokerbox-v2.vercel.app/",
 ];
-
+ 
 const projectCases = [
+  {
+    title: "Epic Afrcan Safaris",
+    description: "Next js, Typescript, Styled-Components",
+    imageSrc: "/safaris.png",
+  },
+  {
+    title: "tiny-assistants",
+    description: "Next js, Typescript, Styled-Components,postgres",
+    imageSrc: "/tiny.png",
+  },
   {
     title: "Dollars App",
     description: "Next js, Typescript, Material UI, Javascript",
@@ -81,12 +93,12 @@ const projectCases = [
     imageSrc: "/brokerbox.jpg",
   },
 ];
-
+ 
 const Projects = () => {
   const [, setShowRightArrow] = useState(true);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
-
+ 
   useEffect(() => {
     const carousel = carouselRef.current;
     if (carousel) {
@@ -94,7 +106,7 @@ const Projects = () => {
       window.addEventListener("resize", checkScroll);
       checkScroll();
     }
-
+ 
     return () => {
       if (carousel) {
         carousel.removeEventListener("scroll", checkScroll);
@@ -102,7 +114,7 @@ const Projects = () => {
       }
     };
   }, []);
-
+ 
   const checkScroll = () => {
     if (carouselRef.current) {
       const { scrollWidth, clientWidth, scrollLeft } = carouselRef.current;
@@ -110,7 +122,7 @@ const Projects = () => {
       setShowLeftArrow(scrollLeft > 0);
     }
   };
-
+ 
   const handleScroll = (direction: string) => {
     if (carouselRef.current) {
       const scrollAmount = carouselRef.current.clientWidth * 0.8;
@@ -120,19 +132,19 @@ const Projects = () => {
       });
     }
   };
-
+ 
   return (
     <ProjectsContainer id="projects">
       <ProjectsInnerContainer>
         <ProjectsHeader>
-          <span className="arrow left">&#10092;</span> 
-          PROJECTS 
+          <span className="arrow left">&#10092;</span>
+          PROJECTS
           <span className="arrow right">&#10093;</span>
         </ProjectsHeader>
         <ProjectsSubheader>
-          A showcase of my latest web development work
+          Where pixels meet purpose: my latest web projects.{" "}
         </ProjectsSubheader>
-        
+ 
         <ProjectsCarousel ref={carouselRef}>
           {projectCases.map((project, index) => (
             <ProjectCard key={index}>
@@ -149,7 +161,7 @@ const Projects = () => {
                 <ProjectCardTitle>{project.title}</ProjectCardTitle>
                 <ProjectCardText>{project.description}</ProjectCardText>
                 {projectUrls[index] && (
-                  <ProjectCardLink 
+                  <ProjectCardLink
                     href={projectUrls[index]}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -161,29 +173,39 @@ const Projects = () => {
             </ProjectCard>
           ))}
         </ProjectsCarousel>
-        
+ 
         {showLeftArrow && (
-          <ProjectsArrow 
-            className="left-arrow" 
+          <ProjectsArrow
+            className="left-arrow"
             direction="left"
             onClick={() => handleScroll("left")}
             aria-label="Scroll left"
           />
         )}
-          <ProjectsArrow 
-            className="right-arrow" 
-            direction="right"
-            onClick={() => handleScroll("right")}
-            aria-label="Scroll right"
-          />
-      
+        <ProjectsArrow
+          className="right-arrow"
+          direction="right"
+          onClick={() => handleScroll("right")}
+          aria-label="Scroll right"
+        />
       </ProjectsInnerContainer>
     </ProjectsContainer>
   );
 };
-
+ 
 export default Projects;
-
-Projects.getLayout = function getLayout(page: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined) {
+ 
+Projects.getLayout = function getLayout(
+  page:
+    | string
+    | number
+    | boolean
+    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+    | Iterable<React.ReactNode>
+    | React.ReactPortal
+    | React.PromiseLikeOfReactNode
+    | null
+    | undefined
+) {
   return <HomeLayout>{page}</HomeLayout>;
 };

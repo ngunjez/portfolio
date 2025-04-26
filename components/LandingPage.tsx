@@ -182,7 +182,7 @@ const LandingPage = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <ProfileDescription>
-                I am an experienced frontend engineer with a strong grasp of both <HighlightedText>web2</HighlightedText> and <HighlightedText>web3</HighlightedText> technologies, 
+                I am an experienced frontend engineer with a strong grasp of both <HighlightedText>web2</HighlightedText><HighlightedText>,web3</HighlightedText> and<HighlightedText> AI</HighlightedText> technologies, 
                 adept at crafting intuitive user interfaces for both conventional and decentralized web applications.
               </ProfileDescription>
             </motion.div>
