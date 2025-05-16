@@ -15,7 +15,6 @@ import {
   ProfileImage,
   ActionButton,
   ParticleCanvas,
-  ScrollIndicator,
   ImageContainer
 } from "@/styles/LandingPage";
 
@@ -29,6 +28,17 @@ const downloadCV = () => {
   link.href = cvFileUrl;
   link.download = cvFileName;
   link.click();
+};
+
+// Smooth scroll function to navigate to about section
+const scrollToAbout = () => {
+  const aboutSection = document.getElementById('about');
+  if (aboutSection) {
+    aboutSection.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
 };
 
 const LandingPage = () => {
@@ -233,12 +243,72 @@ const LandingPage = () => {
         </ContentWrapper>
       </HeroSection>
       
+      {/* Enhanced Scroll Indicator with Click Handler */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, delay: 1.5 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5, delay: 1.8 }}
+        style={{
+          position: 'absolute',
+          bottom: '40px',
+          alignItems: 'center',
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+          transform: 'translateX(-50%)',
+          cursor: 'pointer',
+          zIndex: 10
+        }}
+        onClick={scrollToAbout}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
-        <ScrollIndicator />
+        <motion.div
+          animate={{ y: [0, 12, 0] }}
+          transition={{ 
+            duration: 2.5, 
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            color: '#1ea9a4',
+            filter: 'drop-shadow(0 2px 8px rgba(30, 169, 164, 0.3))'
+          }}
+        >
+          {/* Animated Down Arrow */}
+          <motion.svg
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ marginBottom: '10px' }}
+          >
+            <path d="M7 13l5 5 5-5" />
+            <path d="M7 6l5 5 5-5" />
+          </motion.svg>
+          
+          {/* Scroll Text - More Visible */}
+          <motion.span
+            style={{
+              fontSize: '14px',
+              fontWeight: '700',
+              letterSpacing: '1.5px',
+              textTransform: 'uppercase',
+              color: '#1ea9a4',
+              textShadow: '0 1px 3px rgba(0, 0, 0, 0.2)',
+              opacity: 1
+            }}
+          >
+            Scroll Down
+          </motion.span>
+        </motion.div>
       </motion.div>
     </LandingContainer>
   );
