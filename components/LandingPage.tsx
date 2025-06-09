@@ -12,10 +12,10 @@ import {
   ProfileTitle,
   ProfileDescription,
   HighlightedText,
-  ProfileImage,
   ActionButton,
   ParticleCanvas,
-  ImageContainer
+  ImageContainer,
+  ProfileImage // Ensure ProfileImage is imported if it's a styled component
 } from "@/styles/LandingPage";
 
 const downloadCV = () => {
@@ -155,6 +155,15 @@ const LandingPage = () => {
     };
   }, []);
 
+  // Determine the longest string in the TypeAnimation sequence
+  const typeAnimationStrings = [
+    'FRONTEND ENGINEER',
+    'WEB DEVELOPER',
+    'UI/UX ENTHUSIAST',
+    'WEB3 SPECIALIST',
+  ];
+  const longestString = typeAnimationStrings.reduce((a, b) => a.length > b.length ? a : b);
+
   return (
     <LandingContainer id="home">
       <ParticleCanvas ref={canvasRef} />
@@ -167,23 +176,17 @@ const LandingPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <ProfileTitle>
-                <TypeAnimation
-                  sequence={[
-                    'FRONTEND ENGINEER',
-                    3000,
-                    'WEB DEVELOPER',
-                    3000,
-                    'UI/UX ENTHUSIAST',
-                    3000,
-                    'WEB3 SPECIALIST',
-                    3000,
-                  ]}
-                  wrapper="span"
-                  speed={50}
-                  repeat={Infinity}
-                />
-              </ProfileTitle>
+              {/* Added a wrapper div with minWidth to prevent layout shifts */}
+              <div style={{ minWidth: `${longestString.length * 20}px` }}> {/* Adjust multiplier as needed for font size */}
+                <ProfileTitle>
+                  <TypeAnimation
+                    sequence={typeAnimationStrings.flatMap(s => [s, 3000])} // Flatten the array for correct sequence
+                    wrapper="span"
+                    speed={50}
+                    repeat={Infinity}
+                  />
+                </ProfileTitle>
+              </div>
             </motion.div>
 
             <motion.div
@@ -192,7 +195,7 @@ const LandingPage = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <ProfileDescription>
-                I am an experienced frontend engineer with a strong grasp of both <HighlightedText>web2</HighlightedText><HighlightedText>,web3</HighlightedText> and<HighlightedText> AI</HighlightedText> technologies, 
+                I am an experienced frontend engineer with a strong grasp of both <HighlightedText>web2</HighlightedText>, <HighlightedText>web3</HighlightedText> and <HighlightedText>AI</HighlightedText> technologies, 
                 adept at crafting intuitive user interfaces for both conventional and decentralized web applications.
               </ProfileDescription>
             </motion.div>
@@ -256,6 +259,7 @@ const LandingPage = () => {
           justifyContent: 'center',
           width: '100%',
           transform: 'translateX(-50%)',
+          left: '50%', // Added left: '50%' to properly center with transformX
           cursor: 'pointer',
           zIndex: 10
         }}
