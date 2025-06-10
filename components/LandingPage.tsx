@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { TypeAnimation } from 'react-type-animation';
 import HomeLayout from "@/Layout/Layout";
 import {
   LandingContainer,
@@ -155,17 +154,21 @@ const LandingPage = () => {
     };
   }, []);
 
-  // Determine the longest string in the TypeAnimation sequence
-  const typeAnimationStrings = [
-    'FRONTEND ENGINEER',
-    'WEB DEVELOPER',
-    'UI/UX ENTHUSIAST',
-    'WEB3 SPECIALIST',
-  ];
-  const longestString = typeAnimationStrings.reduce((a, b) => a.length > b.length ? a : b);
-
   return (
     <LandingContainer id="home">
+      <style>{`
+        @keyframes gradientShift {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+      `}</style>
       <ParticleCanvas ref={canvasRef} />
       
       <HeroSection>
@@ -176,17 +179,18 @@ const LandingPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              {/* Added a wrapper div with minWidth to prevent layout shifts */}
-              <div style={{ minWidth: `${longestString.length * 20}px` }}> {/* Adjust multiplier as needed for font size */}
-                <ProfileTitle>
-                  <TypeAnimation
-                    sequence={typeAnimationStrings.flatMap(s => [s, 3000])} // Flatten the array for correct sequence
-                    wrapper="span"
-                    speed={50}
-                    repeat={Infinity}
-                  />
-                </ProfileTitle>
-              </div>
+              <ProfileTitle
+                style={{
+                  background: 'linear-gradient(90deg, rgb(255, 255, 255), rgb(30, 169, 164), rgb(255, 255, 255)) 0% 0% / 200%',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  color: 'transparent',
+                  animation: 'gradientShift 4s ease infinite'
+                }}
+              >
+                SOFTWARE ENGINEER
+              </ProfileTitle>
             </motion.div>
 
             <motion.div
@@ -252,14 +256,13 @@ const LandingPage = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 1.8 }}
         style={{
-          position: 'absolute',
-          bottom: '40px',
-          alignItems: 'center',
-          display: 'flex',
-          justifyContent: 'center',
-          width: '100%',
+          position: 'fixed',
+          bottom: '30px',
+          left: '50%',
           transform: 'translateX(-50%)',
-          left: '50%', // Added left: '50%' to properly center with transformX
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           cursor: 'pointer',
           zIndex: 10
         }}
