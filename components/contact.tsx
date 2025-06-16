@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 // import Link from "next/link";
 // import { Fade } from "react-awesome-reveal";
 import HomeLayout from "@/Layout/Layout";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 import {
   ContactContainer,
   ContactDescription,
@@ -30,24 +30,27 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState({ error: "", success: "" });
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus({ error: "", success: "" });
 
     try {
       await emailjs.sendForm(
-        'service_8z5f559',  
-        'template_z1bkhuj', 
-        form.current || '',
-        'bDz8NCcvFhjo0DxjU' 
+        "service_8z5f559",
+        "template_z1bkhuj",
+        form.current || "",
+        "bDz8NCcvFhjo0DxjU"
       );
 
       setStatus({ error: "", success: "Message sent successfully!" });
       form.current && form.current.reset();
     } catch (error) {
-      console.error('Error:', error);
-      setStatus({ error: "Failed to send message. Please try again.", success: "" });
+      console.error("Error:", error);
+      setStatus({
+        error: "Failed to send message. Please try again.",
+        success: "",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -60,9 +63,9 @@ const Contact = () => {
         <LeftSection>
           <ContactTextContainer>
             <ContactDescription>
-              I extend a warm welcome to all of you who have taken the time to
-              explore my portfolio. Your interest in my work is greatly appreciated.
-              I am always open to discussing potential collaboration opportunities.
+              Should you wish to explore a potential collaboration or discuss a
+              future opportunity, I&apos;d be pleased to connect further. Let&apos;s turn
+              great ideas into real results.
             </ContactDescription>
             {/* <Fade direction="up" triggerOnce>
               <ContactLinks>
@@ -112,12 +115,11 @@ const Contact = () => {
                 required
               />
               {status.error && <ErrorMessage>{status.error}</ErrorMessage>}
-              {status.success && <SuccessMessage>{status.success}</SuccessMessage>}
-              <StyledButton 
-                type="submit" 
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+              {status.success && (
+                <SuccessMessage>{status.success}</SuccessMessage>
+              )}
+              <StyledButton type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"}
               </StyledButton>
             </StyledForm>
           </FormContainer>
@@ -129,6 +131,17 @@ const Contact = () => {
 
 export default Contact;
 
-Contact.getLayout = function getLayout(page: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined) {
+Contact.getLayout = function getLayout(
+  page:
+    | string
+    | number
+    | boolean
+    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+    | Iterable<React.ReactNode>
+    | React.ReactPortal
+    | React.PromiseLikeOfReactNode
+    | null
+    | undefined
+) {
   return <HomeLayout>{page}</HomeLayout>;
 };

@@ -38,7 +38,8 @@ export const ProjectsInnerContainer = styled.div`
 
 export const ProjectsHeader = styled.h2`
   color: #fff;
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(1.5rem, calc(1.5rem + ((1vw - 0.48rem) * 1.0417)), 2.25rem);
+
   font-weight: 700;
   position: relative;
   margin: 0 0 0.5rem 0;
@@ -46,7 +47,7 @@ export const ProjectsHeader = styled.h2`
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 
   .arrow {
     color: #0095ff;
@@ -67,7 +68,7 @@ export const ProjectsHeader = styled.h2`
   @media screen and (max-width: 768px) {
     font-size: 2.2rem;
     margin-top: 1rem;
-    
+
     .arrow {
       font-size: 2.5rem;
     }
@@ -79,7 +80,7 @@ export const ProjectsSubheader = styled.p`
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   text-align: center;
   margin: 0 0 3rem 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 300;
   max-width: 80%;
 
@@ -95,7 +96,7 @@ export const ProjectsCarousel = styled.div`
   justify-content: center;
   gap: 2rem;
   width: 100%;
-  
+
   @media screen and (max-width: 768px) {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -105,7 +106,7 @@ export const ProjectsCarousel = styled.div`
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -133,21 +134,22 @@ export const ProjectsArrow = styled.button<ProjectsArrowProps>`
   z-index: 10;
   transition: all 0.3s ease;
   animation: ${pulse} 1.5s infinite;
-  
+
   &::after {
-    content: ${({ direction }) => (direction === "right" ? '"\\2192"' : '"\\2190"')};
+    content: ${({ direction }) =>
+      direction === "right" ? '"\\2192"' : '"\\2190"'};
     color: #0095ff;
     font-size: 1.5rem;
   }
-  
+
   &:hover {
     background: rgba(0, 149, 255, 0.3);
   }
-  
+
   @media screen and (max-width: 1200px) {
     ${({ direction }) => (direction === "right" ? "right: 2%;" : "left: 2%;")}
   }
-  
+
   @media screen and (min-width: 769px) {
     display: none;
   }
@@ -162,16 +164,16 @@ export const ProjectCard = styled.article`
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
   }
-  
+
   @media screen and (max-width: 1200px) {
     width: calc(50% - 2rem);
   }
-  
+
   @media screen and (max-width: 768px) {
     width: 300px;
     flex: 0 0 300px;
@@ -185,7 +187,7 @@ export const ProjectImageContainer = styled.div`
   height: auto;
   position: relative;
   overflow: hidden;
-  
+
   img {
     width: 100%;
     height: auto;
@@ -193,7 +195,7 @@ export const ProjectImageContainer = styled.div`
     transition: transform 0.5s ease;
     object-fit: cover;
   }
-  
+
   ${ProjectCard}:hover & img {
     transform: scale(1.05);
   }
@@ -211,7 +213,7 @@ export const ProjectCardTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0 0 0.75rem 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 `;
 
 export const ProjectCardText = styled.p`
@@ -220,7 +222,7 @@ export const ProjectCardText = styled.p`
   line-height: 1.5;
   margin: 0 0 1.5rem 0;
   flex-grow: 1;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 `;
 
 export const ProjectCardLink = styled(Link)`
@@ -231,8 +233,8 @@ export const ProjectCardLink = styled(Link)`
   text-decoration: none;
   transition: color 0.2s ease;
   margin-top: auto;
-  font-family: 'Poppins', sans-serif;
-  
+  font-family: "Poppins", sans-serif;
+
   &:hover {
     color: #4db5ff;
   }

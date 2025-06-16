@@ -56,7 +56,7 @@ const TechStack = [
 const About = () => {
   return (
     <AboutContainer id="about">
-      <AboutHeader>Personal Insight</AboutHeader>
+      <AboutHeader>PERSONAL INSIGHT</AboutHeader>
       <AboutTextContainer>
         <AboutText>
           I&apos;m a passionate Frontend Developer with experience working remotely

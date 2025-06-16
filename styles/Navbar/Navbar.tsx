@@ -66,7 +66,7 @@ export const NavLinks = styled.div<NavLinksProps>`
   color: #fff;
   right: 40px;
   font-size: clamp(20px, calc(1.25rem + ((1vw - 7.68px) * 0.3472)), 24px);
-  font-family: Poppins;
+  font-family: DM Sans;
   font-weight: 500;
   cursor: pointer;
   @media screen and (max-width: 768px) {

@@ -15,6 +15,7 @@ import {
 
 const LandingPage = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -31,6 +32,32 @@ const LandingPage = () => {
 
     setCanvasDimensions();
     window.addEventListener("resize", setCanvasDimensions);
+
+    // Mouse tracking for scroll indicator
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!scrollIndicatorRef.current) return;
+      
+      const indicator = scrollIndicatorRef.current;
+      const rect = indicator.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      const deltaX = e.clientX - centerX;
+      const deltaY = e.clientY - centerY;
+      const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+      
+      if (distance < 150) {
+        const angle = Math.atan2(deltaY, deltaX);
+        const tiltX = Math.cos(angle) * Math.min(distance / 150, 1) * 8;
+        const tiltY = Math.sin(angle) * Math.min(distance / 150, 1) * 8;
+        
+        indicator.style.transform = `translateX(calc(-50% + ${tiltX}px)) translateY(${tiltY}px)`;
+      } else {
+        indicator.style.transform = 'translateX(-50%)';
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
 
     // Particle settings
     const particlesArray: Particle[] = [];
@@ -124,6 +151,7 @@ const LandingPage = () => {
 
     return () => {
       window.removeEventListener("resize", setCanvasDimensions);
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
@@ -152,15 +180,26 @@ const LandingPage = () => {
           }
         }
 
+        @keyframes pulse {
+          0%, 100% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.4;
+          }
+          50% {
+            transform: translate(-50%, -50%) scale(1.2);
+            opacity: 0.1;
+          }
+        }
+
         @keyframes bounce {
           0%, 20%, 50%, 80%, 100% {
-            transform: translateY(0);
+            transform: translateY(0) rotate(45deg);
           }
           40% {
-            transform: translateY(-8px);
+            transform: translateY(-8px) rotate(45deg);
           }
           60% {
-            transform: translateY(-4px);
+            transform: translateY(-4px) rotate(45deg);
           }
         }
 
@@ -183,13 +222,57 @@ const LandingPage = () => {
           align-items: center;
           cursor: pointer;
           color: #1ea9a4;
-          transition: all 0.3s ease;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           z-index: 10;
+          filter: drop-shadow(0 0 10px rgba(30, 169, 164, 0.3));
+        }
+
+        .scroll-indicator::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 80px;
+          height: 80px;
+          background: radial-gradient(circle, rgba(30, 169, 164, 0.1) 0%, transparent 70%);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          animation: pulse 3s ease-in-out infinite;
+          z-index: -1;
+        }
+
+        .scroll-indicator::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 120px;
+          height: 120px;
+          background: radial-gradient(circle, rgba(30, 169, 164, 0.05) 0%, transparent 70%);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          animation: pulse 3s ease-in-out infinite 1s;
+          z-index: -2;
         }
 
         .scroll-indicator:hover {
           color: #ffffff;
-          transform: translateX(-50%) scale(1.1);
+          transform: translateX(-50%) scale(1.15) translateY(-5px);
+          filter: drop-shadow(0 0 20px rgba(30, 169, 164, 0.6)) drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+        }
+
+        .scroll-indicator:hover::before {
+          animation-duration: 1.5s;
+          background: radial-gradient(circle, rgba(30, 169, 164, 0.2) 0%, transparent 70%);
+        }
+
+        .scroll-indicator:hover::after {
+          animation-duration: 1.5s;
+          background: radial-gradient(circle, rgba(30, 169, 164, 0.1) 0%, transparent 70%);
+        }
+
+        .scroll-indicator:active {
+          transform: translateX(-50%) scale(0.95) translateY(-2px);
         }
 
         .scroll-text {
@@ -198,6 +281,15 @@ const LandingPage = () => {
           margin-bottom: 8px;
           letter-spacing: 1px;
           animation: fadeInOut 2s ease-in-out infinite;
+          text-align: center;
+          text-indent: 1px;
+          transition: all 0.3s ease;
+          text-shadow: 0 0 10px rgba(30, 169, 164, 0.3);
+        }
+
+        .scroll-indicator:hover .scroll-text {
+          letter-spacing: 2px;
+          text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
 
         .scroll-arrow {
@@ -208,6 +300,33 @@ const LandingPage = () => {
           border-left: none;
           transform: rotate(45deg);
           animation: bounce 2s infinite;
+          transition: all 0.3s ease;
+          position: relative;
+          box-shadow: 0 0 10px rgba(30, 169, 164, 0.3);
+        }
+
+        .scroll-arrow::before {
+          content: '';
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          border: 2px solid transparent;
+          border-right: 2px solid currentColor;
+          border-bottom: 2px solid currentColor;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator:hover .scroll-arrow {
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+          animation-duration: 1s;
+        }
+
+        .scroll-indicator:hover .scroll-arrow::before {
+          opacity: 0.5;
+          animation: bounce 1s infinite 0.2s;
         }
 
         .scroll-line {
@@ -216,6 +335,25 @@ const LandingPage = () => {
           background: linear-gradient(to bottom, transparent, currentColor);
           margin-bottom: 10px;
           animation: fadeInOut 2s ease-in-out infinite 0.5s;
+          position: relative;
+          border-radius: 1px;
+          box-shadow: 0 0 5px rgba(30, 169, 164, 0.5);
+        }
+
+        .scroll-line::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 1px;
+          height: 100%;
+          background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5));
+          transform: translateX(-50%);
+        }
+
+        .scroll-indicator:hover .scroll-line {
+          box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+          animation-duration: 1s;
         }
 
         @media (max-width: 768px) {
@@ -293,12 +431,12 @@ const LandingPage = () => {
 
         {/* Scroll Down Indicator */}
         <motion.div
+          ref={scrollIndicatorRef}
           className="scroll-indicator"
           onClick={scrollToProjects}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
           <div
@@ -306,13 +444,14 @@ const LandingPage = () => {
             style={{
               fontSize:
                 "clamp(1rem, calc(1rem + ((1vw - 0.48rem) * 0.6944)), 1.5rem)",
-display: "flex",
+              display: "flex",
               justifyContent: "center",
               alignItems: "center",
               fontWeight: 500,
               marginBottom: "8px",
               letterSpacing: "1px",
               animation: "fadeInOut 2s ease-in-out infinite",
+              position: "fixed",
             }}
           >
             SCROLL DOWN
