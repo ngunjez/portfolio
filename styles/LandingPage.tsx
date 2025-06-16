@@ -40,25 +40,12 @@ const pulse = keyframes`
   }
 `;
 
-const scrollDown = keyframes`
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  80% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-`;
 
 // Main container
 export const LandingContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: #0a0a0a;
   overflow: hidden;
   display: flex;
@@ -145,15 +132,17 @@ export const ProfileTitle = styled.h1`
 `;
 
 export const ProfileDescription = styled.p`
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(1rem, calc(1rem + ((1vw - 0.48rem) * 0.6944)), 1.5rem);
   font-weight: 400;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
   font-family: "DM Sans", sans-serif;
-  margin: 0;
+                margin: '0 auto',
+  text-align: center;
+
 
   @media (max-width: 768px) {
-    text-align: center;
+    text-align: center;n
   }
 `;
 
@@ -277,26 +266,4 @@ export const ActionButton = styled(motion.button)`
   }
 `;
 
-export const ScrollIndicator = styled.div`
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 50px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 25px;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    width: 6px;
-    height: 6px;
-    background: #1ea9a4;
-    margin-left: -3px;
-    border-radius: 50%;
-    animation: ${scrollDown} 2s infinite;
-  }
-`;
