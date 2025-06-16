@@ -10,21 +10,8 @@ import {
   ProfileTitle,
   ProfileDescription,
   HighlightedText,
-  ActionButton,
   ParticleCanvas,
 } from "@/styles/LandingPage";
-
-const downloadCV = () => {
-  const cvFileName = "Rcv3.pdf";
-  const cvFileUrl = "/" + cvFileName;
-
-  console.log("CV File URL:", cvFileUrl);
-
-  const link = document.createElement("a");
-  link.href = cvFileUrl;
-  link.download = cvFileName;
-  link.click();
-};
 
 const LandingPage = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -140,6 +127,16 @@ const LandingPage = () => {
     };
   }, []);
 
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <LandingContainer id="home">
       <style>{`
@@ -152,6 +149,91 @@ const LandingPage = () => {
           }
           100% {
             background-position: 0% 50%;
+          }
+        }
+
+        @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+          }
+          40% {
+            transform: translateY(-8px);
+          }
+          60% {
+            transform: translateY(-4px);
+          }
+        }
+
+        @keyframes fadeInOut {
+          0%, 100% {
+            opacity: 0.6;
+          }
+          50% {
+            opacity: 1;
+          }
+        }
+
+        .scroll-indicator {
+          position: absolute;
+          bottom: 40px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          cursor: pointer;
+          color: #1ea9a4;
+          transition: all 0.3s ease;
+          z-index: 10;
+        }
+
+        .scroll-indicator:hover {
+          color: #ffffff;
+          transform: translateX(-50%) scale(1.1);
+        }
+
+        .scroll-text {
+          font-size: 14px;
+          font-weight: 500;
+          margin-bottom: 8px;
+          letter-spacing: 1px;
+          animation: fadeInOut 2s ease-in-out infinite;
+        }
+
+        .scroll-arrow {
+          width: 24px;
+          height: 24px;
+          border: 2px solid currentColor;
+          border-top: none;
+          border-left: none;
+          transform: rotate(45deg);
+          animation: bounce 2s infinite;
+        }
+
+        .scroll-line {
+          width: 2px;
+          height: 30px;
+          background: linear-gradient(to bottom, transparent, currentColor);
+          margin-bottom: 10px;
+          animation: fadeInOut 2s ease-in-out infinite 0.5s;
+        }
+
+        @media (max-width: 768px) {
+          .scroll-indicator {
+            bottom: 30px;
+          }
+          
+          .scroll-text {
+            font-size: 12px;
+          }
+          
+          .scroll-arrow {
+            width: 20px;
+            height: 20px;
+          }
+          
+          .scroll-line {
+            height: 25px;
           }
         }
       `}</style>
@@ -206,22 +288,38 @@ const LandingPage = () => {
                 decentralized web applications.
               </ProfileDescription>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <ActionButton
-                onClick={downloadCV}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="download-icon">↓</span> Download Resume
-              </ActionButton>
-            </motion.div>
           </InfoSection>
         </ContentWrapper>
+
+        {/* Scroll Down Indicator */}
+        <motion.div
+          className="scroll-indicator"
+          onClick={scrollToProjects}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <div
+            className="scroll-text"
+            style={{
+              fontSize:
+                "clamp(1rem, calc(1rem + ((1vw - 0.48rem) * 0.6944)), 1.5rem)",
+display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              fontWeight: 500,
+              marginBottom: "8px",
+              letterSpacing: "1px",
+              animation: "fadeInOut 2s ease-in-out infinite",
+            }}
+          >
+            SCROLL DOWN
+          </div>
+          <div className="scroll-line"></div>
+          <div className="scroll-arrow"></div>
+        </motion.div>
       </HeroSection>
     </LandingContainer>
   );

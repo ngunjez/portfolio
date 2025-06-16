@@ -11,8 +11,22 @@ import {
   AboutTitles,
   Title,
 } from "@/styles/About";
+import { ActionButton } from "@/styles/LandingPage";
+import { motion } from "framer-motion";
 import React from "react";
 import HomeLayout from "@/Layout/Layout";
+
+const downloadCV = () => {
+  const cvFileName = "Rcv3.pdf";
+  const cvFileUrl = "/" + cvFileName;
+
+  console.log("CV File URL:", cvFileUrl);
+
+  const link = document.createElement("a");
+  link.href = cvFileUrl;
+  link.download = cvFileName;
+  link.click();
+};
 
 const TechStack = [
   {
@@ -45,17 +59,19 @@ const About = () => {
       <AboutHeader>Personal Insight</AboutHeader>
       <AboutTextContainer>
         <AboutText>
-          I am a passionate front-end developer based in Nairobi, Kenya,
-          specializing in visually appealing, user-centric, and responsive web
-          designs. My expertise covers the full spectrum of front-end
-          development, and I thrive on challenging projects that encourage
-          creativity and make a positive impact. My professional approach is
-          defined by organization, independence, and meticulous attention to
-          detail, allowing me to excel as a problem solver in web development.
-          Beyond coding, I am an avid outdoor enthusiast who enjoys travel,
-          football, and captivating films. I aim to create meaningful change in
-          the digital landscape through my dedication and mission-driven work
-          ethic.
+          I&apos;m a passionate Frontend Developer with experience working remotely
+          and on-site, specializing in user-centric, visually appealing, and
+          responsive web applications. My expertise spans the full spectrum of
+          frontend development, including Web2, Web3, and AI-driven
+          technologies, where I thrive on solving complex challenges through
+          clean, maintainable code. I value creativity, precision, and
+          impact-driven work, and approach every project with independence,
+          organization, and attention to detail. I&apos;ve led component
+          architecture, mentored junior developers, and contributed to scalable,
+          modern digital solutions. Outside of development, I enjoy exploring
+          the outdoors, football, and great films. My goal is to create
+          meaningful change in the digital space through purposeful,
+          mission-driven design and engineering.
         </AboutText>
         <AboutPic></AboutPic>
       </AboutTextContainer>
@@ -73,6 +89,21 @@ const About = () => {
           </AboutBigContainer>
         ))}
       </AboutTechContainer>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        style={{ marginTop: "50px" }}
+      >
+        <ActionButton
+          onClick={downloadCV}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span className="download-icon">↓</span> Download Resume
+        </ActionButton>
+      </motion.div>
     </AboutContainer>
   );
 };

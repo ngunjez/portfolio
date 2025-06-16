@@ -11,12 +11,13 @@ export default function Home() {
       <div id="home">
         <LandingPage />
       </div>
-      <div id="about">
-        <About />
-      </div>
       <div id="projects">
         <Projects />
       </div>
+      <div id="about">
+        <About />
+      </div>
+
       <div id="contact">
         <Contact />
       </div>

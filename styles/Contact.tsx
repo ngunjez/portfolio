@@ -8,7 +8,7 @@ export const ContactContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: #0a121c;
   padding: 5% 0;
   @media screen and (max-width: 768px) {
     display: flex;
@@ -40,7 +40,7 @@ export const ContactContainer = styled.div`
 
 export const ContactHeader = styled.div`
   dislay: flex;
-  color: #000;
+  color: #fff;
   text-align: center;
   font-size: clamp(24px, calc(1.5rem + ((1vw - 7.68px) * 0.5208)), 30px);
   font-weight: 500;
@@ -83,7 +83,7 @@ export const ContactDescription = styled.div`
   font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.1736)), 18px);
   font-weight: 500;
   font-family: Poppins;
-  color: #000;
+  color: #fff;
   text-align: center;
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -92,43 +92,45 @@ export const ContactDescription = styled.div`
   }
 `;
 
-export const ContactLinks = styled.div`
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 90px;
-  @media screen and (max-width: 768px) {
-    gap: 50px;
-  }
-`;
+// export const ContactLinks = styled.div`
+//   width: 100%;
+//   height: auto;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   gap: 90px;
+//   background-color: transparent;
+//   @media screen and (max-width: 768px) {
+//     gap: 50px;
+//   }
+// `;
 
-export const Twitter = styled.div`
-  width: 21px;
-  height: 20px;
-  flex-shrink: 0;
-  background-image: url("/Twitter2.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  &:hover {
-    background-color: #6e85b7;
-  }
-`;
+// export const Twitter = styled.div`
+//   width: 21px;
+//   height: 20px;
+//   flex-shrink: 0;
+//   background-image: url("/Twitter2.svg");
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+  
+//   &:hover {
+//     background-color: #6e85b7;
+//   }
+// `;
 
-export const LinkedIn = styled.div`
-  width: 21px;
-  height: 20px;
-  flex-shrink: 0;
-  background-image: url("/LinkedIn2.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  &:hover {
-    background-color: #6e85b7;
-  }
-`;
+// export const LinkedIn = styled.div`
+//   width: 21px;
+//   height: 20px;
+//   flex-shrink: 0;
+//   background-image: url("/LinkedIn2.svg");
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   &:hover {
+//     background-color: #6e85b7;
+//   }
+// `;
 
 export const Email = styled.div`
   width: 21px;

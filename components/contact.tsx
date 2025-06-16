@@ -1,18 +1,18 @@
 // Contact.tsx
 import React, { useRef, useState } from "react";
-import Link from "next/link";
-import { Fade } from "react-awesome-reveal";
+// import Link from "next/link";
+// import { Fade } from "react-awesome-reveal";
 import HomeLayout from "@/Layout/Layout";
 import emailjs from '@emailjs/browser';
 import {
   ContactContainer,
   ContactDescription,
   ContactHeader,
-  ContactLinks,
+  // ContactLinks,
   ContactTextContainer,
   Github,
-  LinkedIn,
-  Twitter,
+  // LinkedIn,
+  // Twitter,
   FormContainer,
   StyledForm,
   StyledInput,
@@ -64,7 +64,7 @@ const Contact = () => {
               explore my portfolio. Your interest in my work is greatly appreciated.
               I am always open to discussing potential collaboration opportunities.
             </ContactDescription>
-            <Fade direction="up" triggerOnce>
+            {/* <Fade direction="up" triggerOnce>
               <ContactLinks>
                 <Link
                   href="https://www.linkedin.com/in/owen-ngunjiri-b19a7324a/"
@@ -88,7 +88,7 @@ const Contact = () => {
                   <Twitter></Twitter>
                 </Link>
               </ContactLinks>
-            </Fade>
+            </Fade> */}
           </ContactTextContainer>
         </LeftSection>
         <RightSection>
