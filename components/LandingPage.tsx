@@ -36,28 +36,28 @@ const LandingPage = () => {
     // Mouse tracking for scroll indicator
     const handleMouseMove = (e: MouseEvent) => {
       if (!scrollIndicatorRef.current) return;
-      
+
       const indicator = scrollIndicatorRef.current;
       const rect = indicator.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
-      
+
       const deltaX = e.clientX - centerX;
       const deltaY = e.clientY - centerY;
       const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-      
+
       if (distance < 150) {
         const angle = Math.atan2(deltaY, deltaX);
         const tiltX = Math.cos(angle) * Math.min(distance / 150, 1) * 8;
         const tiltY = Math.sin(angle) * Math.min(distance / 150, 1) * 8;
-        
+
         indicator.style.transform = `translateX(calc(-50% + ${tiltX}px)) translateY(${tiltY}px)`;
       } else {
-        indicator.style.transform = 'translateX(-50%)';
+        indicator.style.transform = "translateX(-50%)";
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
 
     // Particle settings
     const particlesArray: Particle[] = [];
@@ -151,7 +151,7 @@ const LandingPage = () => {
 
     return () => {
       window.removeEventListener("resize", setCanvasDimensions);
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
@@ -418,12 +418,11 @@ const LandingPage = () => {
               style={{ marginBottom: "30px" }}
             >
               <ProfileDescription>
-                I am an experienced frontend engineer with a strong grasp of
-                both <HighlightedText>web2</HighlightedText>,{" "}
-                <HighlightedText>web3</HighlightedText> and{" "}
-                <HighlightedText>AI</HighlightedText> technologies, adept at
-                crafting intuitive user interfaces for both conventional and
-                decentralized web applications.
+                I engineer standout interfaces from{" "}
+                <HighlightedText>Web2</HighlightedText> to{" "}
+                <HighlightedText>Web3</HighlightedText>, blending seamless UX
+                with <HighlightedText>AI</HighlightedText>-ready solutions to
+                power the next generation of digital experiences.
               </ProfileDescription>
             </motion.div>
           </InfoSection>
