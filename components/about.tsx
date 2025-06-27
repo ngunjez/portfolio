@@ -17,7 +17,7 @@ import React from "react";
 import HomeLayout from "@/Layout/Layout";
 
 const downloadCV = () => {
-  const cvFileName = "Rcv3.pdf";
+  const cvFileName = "CV.pdf";
   const cvFileUrl = "/" + cvFileName;
 
   console.log("CV File URL:", cvFileUrl);
