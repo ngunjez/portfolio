@@ -15,58 +15,61 @@ import {
   ProjectCardText,
   ProjectCardLink,
 } from "@/styles/Projects";
- 
+
 const projectUrls = [
-  "https://www.epicafricansafaris.africa/",
-  "https://www.tinyassistants.ai/",
-  "https://app.dollarsapp.ai/copytrading",
-  "https://www.xntree.co/",
-  "https://www.eqcap.fund/",
-  "https://www.dollarmarkets.africa/",
   "https://www.bettercallpaul.world/",
+  "https://www.tinyassistants.ai/home",
+  "https://app.dollarsapp.ai/copytrading",
+  "https://www.epicafricansafaris.africa/",
+  "https://www.eqcap.fund/",
+  "https://www.xntree.co/",
+  "https://www.dollarmarkets.africa/",
   "https://parallel-88-fd73osf7e-parallel-88.vercel.app/",
   "https://code3camp.vercel.app/",
   "https://www.peer2peer.pro/",
   "https://skyswyp.vercel.app/",
   "https://brokerbox-v2.vercel.app/",
 ];
- 
+
 const projectCases = [
   {
-    title: "Epic Afrcan Safaris",
-    description: "Next js, Typescript, Styled-Components",
-    imageSrc: "/safaris.png",
+    title: "Better Call Paul",
+    description: "Next js, Typescript, Styled-Components, Node js",
+    imageSrc: "/bcp.png",
   },
   {
-    title: "tiny-assistants",
-    description: "Next js, Typescript, Styled-Components,postgres",
+    title: "tiny-assistants(AI)",
+    description: "Next js, Typescript, Styled-Components, PostgresSQL",
     imageSrc: "/tiny.png",
   },
   {
     title: "Dollars App",
-    description: "Next js, Typescript, Material UI, Javascript",
+    description: "Next js, Typescript, Material UI, Javascript, GraphQL",
     imageSrc: "/d2.png",
+  },
+    {
+    title: "Epic Afrcan Safaris",
+    description: "Next js, Typescript, Styled-Components",
+    imageSrc: "/safaris.png",
+  },
+    {
+    title: "EQAM",
+    description: "Next js, Javascript",
+    imageSrc: "/eqam.jpg",
   },
   {
     title: "Xntree",
     description: "Next js, Typescript, Styled-Components",
     imageSrc: "/xntree.png",
   },
-  {
-    title: "EQAM",
-    description: "Next js, Javascript",
-    imageSrc: "/eqam.jpg",
-  },
+
   {
     title: "Dollar Markets",
     description: "Next js, Typescript, Styled-Components",
     imageSrc: "/dollarmarkets.png",
   },
-  {
-    title: "Better Call Paul",
-    description: "Next js, Typescript, Styled-Components, Node js",
-    imageSrc: "/bcp.png",
-  },
+
+
   {
     title: "Parallel88",
     description: "Next js, Javascript",
@@ -93,12 +96,12 @@ const projectCases = [
     imageSrc: "/brokerbox.jpg",
   },
 ];
- 
+
 const Projects = () => {
   const [, setShowRightArrow] = useState(true);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
- 
+
   useEffect(() => {
     const carousel = carouselRef.current;
     if (carousel) {
@@ -106,7 +109,7 @@ const Projects = () => {
       window.addEventListener("resize", checkScroll);
       checkScroll();
     }
- 
+
     return () => {
       if (carousel) {
         carousel.removeEventListener("scroll", checkScroll);
@@ -114,7 +117,7 @@ const Projects = () => {
       }
     };
   }, []);
- 
+
   const checkScroll = () => {
     if (carouselRef.current) {
       const { scrollWidth, clientWidth, scrollLeft } = carouselRef.current;
@@ -122,7 +125,7 @@ const Projects = () => {
       setShowLeftArrow(scrollLeft > 0);
     }
   };
- 
+
   const handleScroll = (direction: string) => {
     if (carouselRef.current) {
       const scrollAmount = carouselRef.current.clientWidth * 0.8;
@@ -132,7 +135,7 @@ const Projects = () => {
       });
     }
   };
- 
+
   return (
     <ProjectsContainer id="projects">
       <ProjectsInnerContainer>
@@ -144,7 +147,7 @@ const Projects = () => {
         <ProjectsSubheader>
           Where pixels meet purpose: my latest web projects.{" "}
         </ProjectsSubheader>
- 
+
         <ProjectsCarousel ref={carouselRef}>
           {projectCases.map((project, index) => (
             <ProjectCard key={index}>
@@ -173,7 +176,7 @@ const Projects = () => {
             </ProjectCard>
           ))}
         </ProjectsCarousel>
- 
+
         {showLeftArrow && (
           <ProjectsArrow
             className="left-arrow"
@@ -192,9 +195,9 @@ const Projects = () => {
     </ProjectsContainer>
   );
 };
- 
+
 export default Projects;
- 
+
 Projects.getLayout = function getLayout(
   page:
     | string
