@@ -17,7 +17,7 @@ import {
 } from "@/styles/Projects";
 
 const projectUrls = [
-  "https://www.bettercallpaul.world/",
+  "https://better-call-paul-tau.vercel.app/",
   "https://www.tinyassistants.ai/home",
   "https://app.dollarsapp.ai/copytrading",
   "https://www.epicafricansafaris.africa/",
@@ -34,7 +34,7 @@ const projectUrls = [
 const projectCases = [
   {
     title: "Better Call Paul",
-    description: "Next js, Typescript, Styled-Components, Node js",
+    description: "Next js, Typescript, Styled-Components, Node js, MongoDB",
     imageSrc: "/bcp.png",
   },
   {
