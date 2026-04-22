@@ -131,17 +131,6 @@ const Contact = () => {
 
 export default Contact;
 
-Contact.getLayout = function getLayout(
-  page:
-    | string
-    | number
-    | boolean
-    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-    | Iterable<React.ReactNode>
-    | React.ReactPortal
-    | React.PromiseLikeOfReactNode
-    | null
-    | undefined
-) {
+Contact.getLayout = function getLayout(page: React.ReactNode) {
   return <HomeLayout>{page}</HomeLayout>;
 };
