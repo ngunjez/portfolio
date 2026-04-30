@@ -17,11 +17,11 @@ import {
 } from "@/styles/Projects";
 
 const projectUrls = [
+  "https://www.shoppop.ink/beta",
   "https://better-call-paul-tau.vercel.app/",
   "https://www.tinyassistants.ai/home",
-  "https://app.dollarsapp.ai/copytrading",
   "https://www.epicafricansafaris.africa/",
-  "https://www.eqcap.fund/",
+  "https://app.dollarsapp.ai/copytrading",
   "https://www.xntree.co/",
   "https://www.dollarmarkets.africa/",
   "https://parallel-88-fd73osf7e-parallel-88.vercel.app/",
@@ -33,6 +33,12 @@ const projectUrls = [
 
 const projectCases = [
   {
+    title: "Shoppop",
+    description:
+      "Next js, typescript, prisma, styled-components, nodejs, postgresql",
+    imageSrc: "/shoppop.png",
+  },
+  {
     title: "Better Call Paul",
     description: "Next js, Typescript, Styled-Components, Node js, MongoDB",
     imageSrc: "/bcp.png",
@@ -43,20 +49,17 @@ const projectCases = [
     imageSrc: "/tiny.png",
   },
   {
-    title: "Dollars App",
-    description: "Next js, Typescript, Material UI, Javascript, GraphQL",
-    imageSrc: "/d2.png",
-  },
-    {
     title: "Epic Afrcan Safaris",
     description: "Next js, Typescript, Styled-Components",
     imageSrc: "/safaris.png",
   },
-    {
-    title: "EQAM",
-    description: "Next js, Javascript",
-    imageSrc: "/eqam.jpg",
+
+  {
+    title: "Dollars App",
+    description: "Next js, Typescript, Material UI, Javascript, GraphQL",
+    imageSrc: "/d2.png",
   },
+
   {
     title: "Xntree",
     description: "Next js, Typescript, Styled-Components",
@@ -68,7 +71,6 @@ const projectCases = [
     description: "Next js, Typescript, Styled-Components",
     imageSrc: "/dollarmarkets.png",
   },
-
 
   {
     title: "Parallel88",
@@ -208,7 +210,7 @@ Projects.getLayout = function getLayout(
     | React.ReactPortal
     | React.PromiseLikeOfReactNode
     | null
-    | undefined
+    | undefined,
 ) {
   return <HomeLayout>{page}</HomeLayout>;
 };
